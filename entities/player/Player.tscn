@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://jdlg8ppr3qyo"]
+[gd_scene load_steps=13 format=3 uid="uid://jdlg8ppr3qyo"]
 
 [ext_resource type="Script" uid="uid://d3s8yxuvpmekm" path="res://addon/Godot-Simple-State-Machine-First-Person-Controller-4c10c31e6a10bb3c23d6640a32a96b02da580bc1/PlayerCharacter/StateMachine/PlayerCharacterScript.gd" id="1_mgrs4"]
 [ext_resource type="Script" uid="uid://b0fbr48rbvn27" path="res://addon/Godot-Simple-State-Machine-First-Person-Controller-4c10c31e6a10bb3c23d6640a32a96b02da580bc1/PlayerCharacter/Camera/CameraScript.gd" id="2_5h3or"]
 [ext_resource type="Script" uid="uid://sca7ypsol83f" path="res://addon/Godot-Simple-State-Machine-First-Person-Controller-4c10c31e6a10bb3c23d6640a32a96b02da580bc1/PlayerCharacter/StateMachine/StateMachineScript.gd" id="3_557gw"]
+[ext_resource type="Script" uid="uid://phxaic5r65aa" path="res://entities/player/player_interact.gd" id="3_fmb3c"]
 [ext_resource type="Script" uid="uid://stil4xkf3tk0" path="res://addon/Godot-Simple-State-Machine-First-Person-Controller-4c10c31e6a10bb3c23d6640a32a96b02da580bc1/PlayerCharacter/StateMachine/IdleStateScript.gd" id="4_8e01l"]
 [ext_resource type="Script" uid="uid://blt7dest23fk0" path="res://addon/Godot-Simple-State-Machine-First-Person-Controller-4c10c31e6a10bb3c23d6640a32a96b02da580bc1/PlayerCharacter/StateMachine/WalkStateScript.gd" id="5_n7fnc"]
 [ext_resource type="Script" uid="uid://bh3rdvokmrar1" path="res://addon/Godot-Simple-State-Machine-First-Person-Controller-4c10c31e6a10bb3c23d6640a32a96b02da580bc1/PlayerCharacter/StateMachine/InairStateScript.gd" id="8_e8c05"]
@@ -24,7 +25,7 @@ albedo_color = Color(0.196078, 0.223529, 1, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_p2iaj"]
 
-[node name="PlayerCharacter" type="CharacterBody3D" groups=["PlayerCharacter"]]
+[node name="PlayerCharacter" type="CharacterBody3D" groups=["PlayerCharacter", "player"]]
 collision_layer = 2
 collision_mask = 97
 floor_block_on_wall = false
@@ -81,7 +82,7 @@ bobAmplitude = 0.05
 camTiltRotationValue = 0.35
 camTiltRotationSpeed = 2.2
 onFloorTiltValDivider = 1.6
-mouseModeAction = "mouseMode"
+mouseModeAction = "ui_cancel"
 
 [node name="Camera" type="Camera3D" parent="CameraHolder"]
 cull_mask = 3
@@ -90,10 +91,25 @@ fov = 90.0
 near = 0.01
 far = 1000.0
 
+[node name="AudioListener3D" type="AudioListener3D" parent="CameraHolder/Camera"]
+current = true
+
+[node name="PlayerInteract" type="Node3D" parent="CameraHolder/Camera"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+script = ExtResource("3_fmb3c")
+
+[node name="InteractRay" type="RayCast3D" parent="CameraHolder/Camera/PlayerInteract"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+target_position = Vector3(0, 0, 1.5)
+collision_mask = 2
+collide_with_areas = true
+collide_with_bodies = false
+
 [node name="Hitbox" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_5yjma")
 
 [node name="Model" type="MeshInstance3D" parent="."]
+visible = false
 layers = 2
 material_override = SubResource("StandardMaterial3D_6bkys")
 mesh = SubResource("CapsuleMesh_p2iaj")

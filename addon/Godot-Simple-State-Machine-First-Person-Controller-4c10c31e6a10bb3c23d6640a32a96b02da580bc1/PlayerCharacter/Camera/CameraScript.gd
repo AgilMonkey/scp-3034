@@ -65,7 +65,7 @@ func _process(delta):
 	
 	#cameraTilt(delta)
 	
-	#mouseMode()
+	mouseMode()
 
 
 func applies(delta : float):

@@ -1,4 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://0l3y8fwuubxl"]
+[gd_scene load_steps=7 format=3 uid="uid://0l3y8fwuubxl"]
+
+[ext_resource type="Script" uid="uid://cm35jd74c1wcv" path="res://entities/radio/radio_timer.gd" id="1_72vy1"]
+[ext_resource type="AudioStream" uid="uid://c2ma6nqk04isw" path="res://assets/sounds/start_audio.ogg" id="1_qdtoy"]
+[ext_resource type="Script" uid="uid://dyk1o48mgb0k5" path="res://entities/radio/radio_interact.gd" id="1_qntic"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_i3plj"]
 
@@ -20,7 +24,7 @@ mesh = SubResource("BoxMesh_i3plj")
 skeleton = NodePath("../..")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Mesh"]
-transform = Transform3D(1.03783, 0, 0.15565, 0, 0.45, 0, -0.298848, 0, 0.540536, 0, 1.22275, 0)
+transform = Transform3D(1.03783, 0, 0.15565, 0, 0.45, 0, -0.298848, 0, 0.540536, 0, 1.2177, 0)
 mesh = SubResource("BoxMesh_i3plj")
 skeleton = NodePath("../..")
 
@@ -33,7 +37,55 @@ shape = SubResource("BoxShape3D_i3plj")
 
 [node name="RadioInteract" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.27257, 0)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_qntic")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RadioInteract"]
 shape = SubResource("BoxShape3D_qdtoy")
 debug_color = Color(0.940648, 0.168652, 0.449195, 0.42)
+
+[node name="RadioTimer" type="Node3D" parent="."]
+script = ExtResource("1_72vy1")
+
+[node name="StartRadio" type="AudioStreamPlayer3D" parent="RadioTimer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1881, 0)
+stream = ExtResource("1_qdtoy")
+unit_size = 5.0
+
+[node name="CountdownTimer" type="Timer" parent="RadioTimer"]
+one_shot = true
+
+[node name="CamPivot" type="Node3D" parent="."]
+transform = Transform3D(0.86163, 0.0110716, 0.507416, 0, 0.999762, -0.0218143, -0.507537, 0.0187959, 0.861425, 0.806012, 1.23792, 1.36834)
+
+[node name="RadioUI" type="CanvasLayer" parent="."]
+layer = -5
+visible = false
+
+[node name="Control" type="Control" parent="RadioUI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="AllIsWellButton" type="Button" parent="RadioUI/Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -51.0
+offset_top = -43.0
+offset_right = 51.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "все хорошо"
+
+[connection signal="button_down" from="RadioUI/Control/AllIsWellButton" to="RadioTimer" method="_on_all_is_well_button_button_down"]

@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://dciqclavdup0n"]
+[gd_scene load_steps=9 format=3 uid="uid://dciqclavdup0n"]
 
 [ext_resource type="PackedScene" uid="uid://jdlg8ppr3qyo" path="res://entities/player/Player.tscn" id="1_0o3xy"]
-[ext_resource type="Material" uid="uid://cmlreoo2qwhp4" path="res://addon/Godot-Simple-State-Machine-First-Person-Controller-4c10c31e6a10bb3c23d6640a32a96b02da580bc1/Arts/StructureMaterial.tres" id="1_vc640"]
+[ext_resource type="Material" uid="uid://d0m1xix2ctp7g" path="res://levels/main/floor_mat.tres" id="1_gonaa"]
 [ext_resource type="Texture2D" uid="uid://e7i52wxu1tah" path="res://test.png" id="3_f6gjy"]
+[ext_resource type="PackedScene" uid="uid://0l3y8fwuubxl" path="res://entities/radio/radio.tscn" id="4_gonaa"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0o3xy"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -26,12 +27,13 @@ environment = SubResource("Environment_f6gjy")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
-light_energy = 0.219
+light_energy = 0.015
 shadow_enabled = true
+sky_mode = 1
 
 [node name="Ground" type="CSGMesh3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
-material_override = ExtResource("1_vc640")
+material_override = ExtResource("1_gonaa")
 use_collision = true
 mesh = SubResource("BoxMesh_fl30x")
 
@@ -73,3 +75,6 @@ theme_override_font_sizes/font_size = 8
 text = "Item #:  SCP-3035
 Object Class: Euclid
 Special Containment Procedures:"
+
+[node name="Radio" parent="." instance=ExtResource("4_gonaa")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.27505, 9.53674e-07, 0.540339)
