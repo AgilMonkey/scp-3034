@@ -1,0 +1,128 @@
+[gd_scene load_steps=12 format=3 uid="uid://jdlg8ppr3qyo"]
+
+[ext_resource type="Script" uid="uid://d3s8yxuvpmekm" path="res://addon/Godot-Simple-State-Machine-First-Person-Controller-4c10c31e6a10bb3c23d6640a32a96b02da580bc1/PlayerCharacter/StateMachine/PlayerCharacterScript.gd" id="1_mgrs4"]
+[ext_resource type="Script" uid="uid://b0fbr48rbvn27" path="res://addon/Godot-Simple-State-Machine-First-Person-Controller-4c10c31e6a10bb3c23d6640a32a96b02da580bc1/PlayerCharacter/Camera/CameraScript.gd" id="2_5h3or"]
+[ext_resource type="Script" uid="uid://sca7ypsol83f" path="res://addon/Godot-Simple-State-Machine-First-Person-Controller-4c10c31e6a10bb3c23d6640a32a96b02da580bc1/PlayerCharacter/StateMachine/StateMachineScript.gd" id="3_557gw"]
+[ext_resource type="Script" uid="uid://stil4xkf3tk0" path="res://addon/Godot-Simple-State-Machine-First-Person-Controller-4c10c31e6a10bb3c23d6640a32a96b02da580bc1/PlayerCharacter/StateMachine/IdleStateScript.gd" id="4_8e01l"]
+[ext_resource type="Script" uid="uid://blt7dest23fk0" path="res://addon/Godot-Simple-State-Machine-First-Person-Controller-4c10c31e6a10bb3c23d6640a32a96b02da580bc1/PlayerCharacter/StateMachine/WalkStateScript.gd" id="5_n7fnc"]
+[ext_resource type="Script" uid="uid://bh3rdvokmrar1" path="res://addon/Godot-Simple-State-Machine-First-Person-Controller-4c10c31e6a10bb3c23d6640a32a96b02da580bc1/PlayerCharacter/StateMachine/InairStateScript.gd" id="8_e8c05"]
+
+[sub_resource type="Curve" id="Curve_h128t"]
+_limits = [0.0, 60.0, 0.0, 1.0]
+_data = [Vector2(0, 12), 0.0, 0.0, 0, 0, Vector2(1, 60), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_takn3"]
+_limits = [0.0, 30.0, 0.0, 1.0]
+_data = [Vector2(0, 3), 0.0, 0.0, 0, 0, Vector2(1, 30), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5yjma"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6bkys"]
+albedo_color = Color(0.196078, 0.223529, 1, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_p2iaj"]
+
+[node name="PlayerCharacter" type="CharacterBody3D" groups=["PlayerCharacter"]]
+collision_layer = 2
+collision_mask = 97
+floor_block_on_wall = false
+floor_max_angle = 1.13446
+floor_snap_length = 0.0
+platform_floor_layers = 4278190081
+script = ExtResource("1_mgrs4")
+desiredMoveSpeedCurve = SubResource("Curve_h128t")
+maxSpeed = 30.0
+inAirMoveSpeedCurve = SubResource("Curve_takn3")
+hitGroundCooldown = 0.2
+bunnyHopDmsIncre = 3.0
+baseHitboxHeight = 2.0
+baseModelHeight = 1.0
+heightChangeSpeed = 10.0
+crouchSpeed = 5.0
+crouchAccel = 7.0
+crouchDeccel = 7.0
+crouchHitboxHeight = 1.2
+crouchModelHeight = 0.6
+walkSpeed = 8.0
+walkAccel = 8.0
+walkDeccel = 8.0
+runSpeed = 12.0
+runAccel = 5.0
+runDeccel = 5.0
+jumpHeight = 2.0
+jumpTimeToPeak = 0.3
+jumpTimeToFall = 0.24
+jumpCooldown = 0.2
+nbJumpsInAirAllowed = 1
+coyoteJumpCooldown = 0.3
+moveForwardAction = "move_forward"
+moveBackwardAction = "move_backward"
+moveLeftAction = "move_left"
+moveRightAction = "move_right"
+runAction = "run"
+crouchAction = "crouch"
+jumpAction = "jump"
+
+[node name="CameraHolder" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.55, 0)
+script = ExtResource("2_5h3or")
+XAxisSensibility = 0.05
+YAxisSensibility = 0.05
+maxUpAngleView = -90.0
+maxDownAngleView = 90.0
+startFOV = 90.0
+baseCameraLerpSpeed = 8.0
+crouchCameraLerpSpeed = 8.0
+crouchCameraDepth = -0.6
+bobFrequency = 1.1
+bobAmplitude = 0.15
+camTiltRotationValue = 0.35
+camTiltRotationSpeed = 2.2
+onFloorTiltValDivider = 1.6
+mouseModeAction = "mouseMode"
+
+[node name="Camera" type="Camera3D" parent="CameraHolder"]
+cull_mask = 3
+current = true
+fov = 90.0
+near = 0.01
+far = 1000.0
+
+[node name="Hitbox" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_5yjma")
+
+[node name="Model" type="MeshInstance3D" parent="."]
+layers = 2
+material_override = SubResource("StandardMaterial3D_6bkys")
+mesh = SubResource("CapsuleMesh_p2iaj")
+
+[node name="Raycasts" type="Node3D" parent="."]
+
+[node name="CeilingCheck" type="RayCast3D" parent="Raycasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.758088, 0)
+exclude_parent = false
+target_position = Vector3(0, 3, 0)
+debug_shape_custom_color = Color(1, 0, 0, 1)
+
+[node name="FloorCheck" type="RayCast3D" parent="Raycasts"]
+exclude_parent = false
+target_position = Vector3(0, -3, 0)
+debug_shape_custom_color = Color(0, 0, 0.956863, 1)
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initialState")]
+script = ExtResource("3_557gw")
+initialState = NodePath("IdleState")
+
+[node name="IdleState" type="Node" parent="StateMachine"]
+script = ExtResource("4_8e01l")
+metadata/_custom_type_script = "uid://stil4xkf3tk0"
+
+[node name="WalkState" type="Node" parent="StateMachine"]
+script = ExtResource("5_n7fnc")
+metadata/_custom_type_script = "uid://blt7dest23fk0"
+
+[node name="InairState" type="Node" parent="StateMachine"]
+script = ExtResource("8_e8c05")
+metadata/_custom_type_script = "uid://bh3rdvokmrar1"

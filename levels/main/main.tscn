@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://dciqclavdup0n"]
+
+[ext_resource type="PackedScene" uid="uid://jdlg8ppr3qyo" path="res://entities/player/Player.tscn" id="1_0o3xy"]
+[ext_resource type="Material" uid="uid://cmlreoo2qwhp4" path="res://addon/Godot-Simple-State-Machine-First-Person-Controller-4c10c31e6a10bb3c23d6640a32a96b02da580bc1/Arts/StructureMaterial.tres" id="1_vc640"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0o3xy"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_vc640"]
+sky_material = SubResource("ProceduralSkyMaterial_0o3xy")
+
+[sub_resource type="Environment" id="Environment_f6gjy"]
+background_mode = 2
+sky = SubResource("Sky_vc640")
+tonemap_mode = 2
+
+[sub_resource type="BoxMesh" id="BoxMesh_fl30x"]
+size = Vector3(15, 1, 15)
+
+[node name="Main" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_f6gjy")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Ground" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+material_override = ExtResource("1_vc640")
+use_collision = true
+mesh = SubResource("BoxMesh_fl30x")
+
+[node name="PlayerCharacter" parent="." instance=ExtResource("1_0o3xy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.44748, 1, 0.0179947)
