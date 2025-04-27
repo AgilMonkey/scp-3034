@@ -11,9 +11,17 @@ config_version=5
 [application]
 
 config/name="Scp Game Jam"
+config/tags=PackedStringArray("gamejams")
 run/main_scene="uid://dciqclavdup0n"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=512
+window/size/viewport_height=240
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
 
 [input]
 
@@ -40,5 +48,8 @@ move_right={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/default_filters/use_nearest_mipmap_filter=true
+textures/default_filters/anisotropic_filtering_level=0

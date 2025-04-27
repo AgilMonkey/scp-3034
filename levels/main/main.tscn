@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dciqclavdup0n"]
+[gd_scene load_steps=8 format=3 uid="uid://dciqclavdup0n"]
 
 [ext_resource type="PackedScene" uid="uid://jdlg8ppr3qyo" path="res://entities/player/Player.tscn" id="1_0o3xy"]
 [ext_resource type="Material" uid="uid://cmlreoo2qwhp4" path="res://addon/Godot-Simple-State-Machine-First-Person-Controller-4c10c31e6a10bb3c23d6640a32a96b02da580bc1/Arts/StructureMaterial.tres" id="1_vc640"]
+[ext_resource type="Texture2D" uid="uid://e7i52wxu1tah" path="res://test.png" id="3_f6gjy"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0o3xy"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -25,6 +26,7 @@ environment = SubResource("Environment_f6gjy")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+light_energy = 0.219
 shadow_enabled = true
 
 [node name="Ground" type="CSGMesh3D" parent="."]
@@ -35,3 +37,39 @@ mesh = SubResource("BoxMesh_fl30x")
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("1_0o3xy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.55252, 1, 0.0179947)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+visible = false
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -142.5
+offset_top = -110.0
+offset_right = 142.5
+offset_bottom = 110.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_f6gjy")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+texture_filter = 1
+offset_right = 40.0
+offset_bottom = 23.0
+text = "SCP-3034"
+
+[node name="Label2" type="Label" parent="CanvasLayer"]
+texture_filter = 1
+offset_top = 23.0
+offset_right = 256.0
+offset_bottom = 98.0
+theme_override_font_sizes/font_size = 8
+text = "Item #:  SCP-3035
+Object Class: Euclid
+Special Containment Procedures:"
