@@ -53,15 +53,16 @@ func applies(delta : float):
 	cR.model.scale.y = lerp(cR.model.scale.y, cR.baseModelHeight, cR.heightChangeSpeed * delta)
 	
 func inputManagement():
-	if Input.is_action_just_pressed(cR.jumpAction):
-		transitioned.emit(self, "JumpState")
-		
-	if Input.is_action_just_pressed(cR.crouchAction):
-		transitioned.emit(self, "CrouchState")
-		
-	if Input.is_action_just_pressed(cR.runAction):
-		cR.walkOrRun = "RunState"
-		transitioned.emit(self, "RunState")
+	pass
+	#if Input.is_action_just_pressed(cR.jumpAction):
+		#transitioned.emit(self, "JumpState")
+		#
+	#if Input.is_action_just_pressed(cR.crouchAction):
+		#transitioned.emit(self, "CrouchState")
+		#
+	#if Input.is_action_just_pressed(cR.runAction):
+		#cR.walkOrRun = "RunState"
+		#transitioned.emit(self, "RunState")
 		
 func move(delta : float):
 	cR.inputDirection = Input.get_vector(cR.moveLeftAction, cR.moveRightAction, cR.moveForwardAction, cR.moveBackwardAction)

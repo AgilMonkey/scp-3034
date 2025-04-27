@@ -34,4 +34,4 @@ use_collision = true
 mesh = SubResource("BoxMesh_fl30x")
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("1_0o3xy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.44748, 1, 0.0179947)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.55252, 1, 0.0179947)

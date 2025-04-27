@@ -26,7 +26,7 @@ func physics_update(delta : float):
 	
 	cR.gravityApply(delta)
 	
-	inputManagement()
+	#inputManagement()
 	
 	move(delta)
 	
@@ -49,16 +49,17 @@ func applies(delta : float):
 	cR.model.scale.y = lerp(cR.model.scale.y, cR.baseModelHeight, cR.heightChangeSpeed * delta)
 	
 func inputManagement():
+	pass
 	#manage the state transitions depending on the actions inputs
-	if Input.is_action_just_pressed(cR.jumpAction):
-		transitioned.emit(self, "JumpState")
-		
-	if Input.is_action_just_pressed(cR.crouchAction):
-		transitioned.emit(self, "CrouchState")
-		
-	if Input.is_action_just_pressed(cR.runAction):
-		if cR.walkOrRun == "WalkState": cR.walkOrRun = "RunState"
-		elif cR.walkOrRun == "RunState": cR.walkOrRun = "WalkState"
+	#if Input.is_action_just_pressed(cR.jumpAction):
+		#transitioned.emit(self, "JumpState")
+		#
+	#if Input.is_action_just_pressed(cR.crouchAction):
+		#transitioned.emit(self, "CrouchState")
+		#
+	#if Input.is_action_just_pressed(cR.runAction):
+		#if cR.walkOrRun == "WalkState": cR.walkOrRun = "RunState"
+		#elif cR.walkOrRun == "RunState": cR.walkOrRun = "WalkState"
 		
 func move(delta : float):
 	#manage the character movement

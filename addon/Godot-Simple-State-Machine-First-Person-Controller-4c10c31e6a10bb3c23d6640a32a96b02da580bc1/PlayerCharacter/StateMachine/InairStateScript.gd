@@ -35,15 +35,17 @@ func applies(delta : float):
 	cR.model.scale.y = lerp(cR.model.scale.y, cR.baseModelHeight, cR.heightChangeSpeed * delta)
 		
 func inputManagement():
-	if Input.is_action_just_pressed(cR.jumpAction):
-		#check if can jump buffer
-		if cR.floorCheck.is_colliding() and cR.lastFramePosition.y > cR.position.y and cR.nbJumpsInAirAllowed <= 0: cR.jumpBuffOn = true
-		#check if can coyote jump
-		if cR.wasOnFloor and cR.coyoteJumpCooldown > 0.0 and cR.lastFramePosition.y > cR.position.y:
-			cR.coyoteJumpOn = true
-			transitioned.emit(self, "JumpState")
-		transitioned.emit(self, "JumpState")
-		
+	pass
+	#if Input.is_action_just_pressed(cR.jumpAction):
+		##check if can jump buffer
+		#if cR.floorCheck.is_colliding() and cR.lastFramePosition.y > cR.position.y and cR.nbJumpsInAirAllowed <= 0: cR.jumpBuffOn = true
+		##check if can coyote jump
+		#if cR.wasOnFloor and cR.coyoteJumpCooldown > 0.0 and cR.lastFramePosition.y > cR.position.y:
+			#cR.coyoteJumpOn = true
+			#transitioned.emit(self, "JumpState")
+		#transitioned.emit(self, "JumpState")
+
+
 func checkIfFloor():
 	if cR.is_on_floor():
 		if cR.jumpBuffOn: 

@@ -77,7 +77,7 @@ var coyoteJumpOn : bool = false
 @onready var model : MeshInstance3D = $Model
 @onready var hitbox : CollisionShape3D = $Hitbox
 @onready var stateMachine : Node = $StateMachine
-@onready var hud : CanvasLayer = $HUD
+#@onready var hud : CanvasLayer = $HUD
 @onready var ceilingCheck : RayCast3D = $Raycasts/CeilingCheck
 @onready var floorCheck : RayCast3D = $Raycasts/FloorCheck
 
@@ -93,7 +93,8 @@ func _ready():
 	coyoteJumpCooldownRef = coyoteJumpCooldown
 	
 func _process(_delta: float):
-	displayProperties()
+	pass
+	#displayProperties()
 	
 func _physics_process(_delta : float):
 	modifyPhysicsProperties()
@@ -101,13 +102,15 @@ func _physics_process(_delta : float):
 	move_and_slide()
 	
 func displayProperties():
+	pass
 	#display properties on the hud
-	if hud != null:
-		hud.displayCurrentState(stateMachine.currStateName)
-		hud.displayDesiredMoveSpeed(desiredMoveSpeed)
-		hud.displayVelocity(velocity.length())
-		hud.displayNbJumpsInAirAllowed(nbJumpsInAirAllowed)
-		
+	#if hud != null:
+		#hud.displayCurrentState(stateMachine.currStateName)
+		#hud.displayDesiredMoveSpeed(desiredMoveSpeed)
+		#hud.displayVelocity(velocity.length())
+		#hud.displayNbJumpsInAirAllowed(nbJumpsInAirAllowed)
+
+
 func modifyPhysicsProperties():
 	lastFramePosition = position #get play char position every frame
 	lastFrameVelocity = velocity #get play char velocity every frame
