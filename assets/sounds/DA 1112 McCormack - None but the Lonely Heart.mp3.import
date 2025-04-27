@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://1hne3gkbre6v"
+path="res://.godot/imported/DA 1112 McCormack - None but the Lonely Heart.mp3-30109f6ece7a57e05a09a23422825f0c.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/DA 1112 McCormack - None but the Lonely Heart.mp3"
+dest_files=["res://.godot/imported/DA 1112 McCormack - None but the Lonely Heart.mp3-30109f6ece7a57e05a09a23422825f0c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
