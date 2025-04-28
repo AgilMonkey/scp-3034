@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=3 uid="uid://dvvhwix387k64"]
+
+[ext_resource type="Script" uid="uid://c5i3rl6l4q5cw" path="res://entities/papers/scp3034_intro/scp_3034_intro_paper.gd" id="1_1so26"]
+[ext_resource type="PackedScene" uid="uid://s5w3f6532m4q" path="res://other/blender/simple-paper.glb" id="1_fw77d"]
+[ext_resource type="Script" uid="uid://bimigtgxr3x3x" path="res://commons/interactables3D/interactable3D.gd" id="3_6md3y"]
+[ext_resource type="Texture2D" uid="uid://e7i52wxu1tah" path="res://test.png" id="4_qbi5s"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1so26"]
+size = Vector3(0.518555, 0.0253906, 0.682617)
+
+[node name="Scp3034IntroPaper" type="Node3D"]
+script = ExtResource("1_1so26")
+
+[node name="simple-paper" parent="." instance=ExtResource("1_fw77d")]
+transform = Transform3D(0.3, 0, 0, 0, 1, 0, 0, 0, 0.3, 0, 0, 0)
+
+[node name="InteractArea" type="Area3D" parent="."]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("3_6md3y")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractArea"]
+shape = SubResource("BoxShape3D_1so26")
+
+[node name="PaperUI" type="CanvasLayer" parent="."]
+layer = -5
+visible = false
+
+[node name="Control" type="Control" parent="PaperUI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ExitButton" type="Button" parent="PaperUI/Control"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Exit"
+
+[node name="TextureRect" type="TextureRect" parent="PaperUI/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -201.0
+offset_top = -77.0
+offset_right = 201.0
+offset_bottom = 233.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_qbi5s")
+expand_mode = 1
+
+[connection signal="interacted" from="InteractArea" to="." method="_on_interact_area_interacted"]

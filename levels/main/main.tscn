@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://dciqclavdup0n"]
+[gd_scene load_steps=10 format=3 uid="uid://dciqclavdup0n"]
 
 [ext_resource type="PackedScene" uid="uid://jdlg8ppr3qyo" path="res://entities/player/Player.tscn" id="1_0o3xy"]
 [ext_resource type="Material" uid="uid://d0m1xix2ctp7g" path="res://levels/main/floor_mat.tres" id="1_gonaa"]
 [ext_resource type="Texture2D" uid="uid://e7i52wxu1tah" path="res://test.png" id="3_f6gjy"]
 [ext_resource type="PackedScene" uid="uid://0l3y8fwuubxl" path="res://entities/radio/radio.tscn" id="4_gonaa"]
+[ext_resource type="PackedScene" uid="uid://dvvhwix387k64" path="res://entities/papers/scp3034_intro/scp3034_IntroPaper.tscn" id="5_iab0w"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0o3xy"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -78,3 +79,6 @@ Special Containment Procedures:"
 
 [node name="Radio" parent="." instance=ExtResource("4_gonaa")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.27505, 9.53674e-07, 0.540339)
+
+[node name="Scp3034IntroPaper" parent="." instance=ExtResource("5_iab0w")]
+transform = Transform3D(0.503955, 0, 0.86373, 0, 1, 0, -0.86373, 0, 0.503955, -6.15294, 1.00392, -0.710932)

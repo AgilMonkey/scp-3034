@@ -2,5 +2,8 @@ class_name Interactable3D
 extends Area3D
 
 
+signal interacted
+
+
 func interact():
-	pass
+	interacted.emit()
