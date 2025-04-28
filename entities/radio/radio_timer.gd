@@ -46,6 +46,6 @@ func countdown():
 func _on_all_is_well_button_button_down() -> void:
 	all_is_well_button.hide()
 	countdown_timer.stop()
-	print("ALL IS WELL")
+	DialogueManager.start_dialogue("All is well", 3.0)
 	await get_tree().create_timer(3.0).timeout
 	start_radio_random_timer()

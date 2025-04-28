@@ -1,0 +1,34 @@
+[gd_scene load_steps=7 format=3 uid="uid://bycv3g6jaelbd"]
+
+[ext_resource type="Texture2D" uid="uid://4x8yak40l4bp" path="res://entities/objects/dont_let_her_finish/dont_let_her_finish_img.png" id="1_2t8e8"]
+[ext_resource type="Script" uid="uid://co52t6f24yk17" path="res://entities/objects/dont_let_her_finish/dont_let_her_finish.gd" id="1_wi2to"]
+[ext_resource type="Script" uid="uid://bimigtgxr3x3x" path="res://commons/interactables3D/interactable3D.gd" id="2_5gqtu"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_5gqtu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wi2to"]
+transparency = 1
+albedo_texture = ExtResource("1_2t8e8")
+metallic_specular = 0.0
+texture_filter = 0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2t8e8"]
+size = Vector3(1, 0.0393066, 0.34082)
+
+[node name="DontLetHerFinish" type="Node3D"]
+script = ExtResource("1_wi2to")
+
+[node name="Model" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -1.71362e-08, 1, 0, -0.39203, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("QuadMesh_5gqtu")
+surface_material_override/0 = SubResource("StandardMaterial3D_wi2to")
+
+[node name="InteractSpeak" type="Area3D" parent="."]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("2_5gqtu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractSpeak"]
+shape = SubResource("BoxShape3D_2t8e8")
+
+[connection signal="interacted" from="InteractSpeak" to="." method="_on_interact_speak_interacted"]

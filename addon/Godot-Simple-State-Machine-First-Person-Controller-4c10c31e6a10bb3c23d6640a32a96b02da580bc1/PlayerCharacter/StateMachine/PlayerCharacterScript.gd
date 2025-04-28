@@ -129,5 +129,6 @@ func _notification(what: int) -> void:
 	match what:
 		NOTIFICATION_DISABLED:
 			player_hud.hide()
+			DialogueManager.disable()
 		NOTIFICATION_ENABLED:
 			player_hud.show()

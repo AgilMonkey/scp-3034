@@ -61,3 +61,7 @@ func lerp_camera_here():
 func show_ui():
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	radio_ui.show()
+
+
+func _on_back_button_button_down() -> void:
+	stop_interacting()

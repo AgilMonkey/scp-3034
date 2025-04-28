@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://0l3y8fwuubxl"]
+[gd_scene load_steps=8 format=3 uid="uid://0l3y8fwuubxl"]
 
 [ext_resource type="Script" uid="uid://cm35jd74c1wcv" path="res://entities/radio/radio_timer.gd" id="1_72vy1"]
 [ext_resource type="AudioStream" uid="uid://c2ma6nqk04isw" path="res://assets/sounds/start_audio.ogg" id="1_qdtoy"]
 [ext_resource type="Script" uid="uid://dyk1o48mgb0k5" path="res://entities/radio/radio_interact.gd" id="1_qntic"]
+[ext_resource type="Theme" uid="uid://40pryt5epnrs" path="res://other/scp_themes.tres" id="4_6w1mp"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_i3plj"]
 
@@ -71,6 +72,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+theme = ExtResource("4_6w1mp")
 
 [node name="AllIsWellButton" type="Button" parent="RadioUI/Control"]
 visible = false
@@ -88,4 +90,13 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "все хорошо"
 
+[node name="BackButton" type="Button" parent="RadioUI/Control"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 53.0
+offset_bottom = 33.0
+text = "Back"
+
 [connection signal="button_down" from="RadioUI/Control/AllIsWellButton" to="RadioTimer" method="_on_all_is_well_button_button_down"]
+[connection signal="button_down" from="RadioUI/Control/BackButton" to="RadioInteract" method="_on_back_button_button_down"]

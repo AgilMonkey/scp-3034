@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqfekm51xntx1"]
+
+[ext_resource type="Theme" uid="uid://40pryt5epnrs" path="res://other/scp_themes.tres" id="1_fkec0"]
+[ext_resource type="Script" uid="uid://catn4el8quyjl" path="res://commons/dialogue_manager/dialogue_manager.gd" id="1_t8v86"]
+
+[node name="DialogueManager" type="Node"]
+script = ExtResource("1_t8v86")
+
+[node name="DialogueUI" type="CanvasLayer" parent="."]
+layer = -4
+visible = false
+
+[node name="Control" type="Control" parent="DialogueUI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_fkec0")
+
+[node name="PanelContainer" type="PanelContainer" parent="DialogueUI/Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -59.0
+offset_top = -35.0
+offset_right = 59.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueUI/Control/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="DialogueText" type="Label" parent="DialogueUI/Control/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "DO NOT LET HER FINISH
+TELL HER ALL IS WELL"
+horizontal_alignment = 1
