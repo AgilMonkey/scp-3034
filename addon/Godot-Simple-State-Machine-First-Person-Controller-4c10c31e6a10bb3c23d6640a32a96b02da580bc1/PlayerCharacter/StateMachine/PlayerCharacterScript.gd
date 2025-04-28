@@ -80,6 +80,8 @@ var coyoteJumpOn : bool = false
 #@onready var hud : CanvasLayer = $HUD
 @onready var ceilingCheck : RayCast3D = $Raycasts/CeilingCheck
 @onready var floorCheck : RayCast3D = $Raycasts/FloorCheck
+@onready var player_hud: CanvasLayer = $PlayerHUD
+
 
 func _ready():
 	#set move variables, and value references
@@ -121,3 +123,11 @@ func gravityApply(delta : float):
 	#otherwise, apply fall gravity
 	if velocity.y >= 0.0: velocity.y += jumpGravity * delta
 	elif velocity.y < 0.0: velocity.y += fallGravity * delta
+
+
+func _notification(what: int) -> void:
+	match what:
+		NOTIFICATION_DISABLED:
+			player_hud.hide()
+		NOTIFICATION_ENABLED:
+			player_hud.show()

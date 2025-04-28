@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://jdlg8ppr3qyo"]
+[gd_scene load_steps=15 format=3 uid="uid://jdlg8ppr3qyo"]
 
 [ext_resource type="Script" uid="uid://d3s8yxuvpmekm" path="res://addon/Godot-Simple-State-Machine-First-Person-Controller-4c10c31e6a10bb3c23d6640a32a96b02da580bc1/PlayerCharacter/StateMachine/PlayerCharacterScript.gd" id="1_mgrs4"]
 [ext_resource type="Script" uid="uid://b0fbr48rbvn27" path="res://addon/Godot-Simple-State-Machine-First-Person-Controller-4c10c31e6a10bb3c23d6640a32a96b02da580bc1/PlayerCharacter/Camera/CameraScript.gd" id="2_5h3or"]
@@ -6,7 +6,9 @@
 [ext_resource type="Script" uid="uid://phxaic5r65aa" path="res://entities/player/player_interact.gd" id="3_fmb3c"]
 [ext_resource type="Script" uid="uid://stil4xkf3tk0" path="res://addon/Godot-Simple-State-Machine-First-Person-Controller-4c10c31e6a10bb3c23d6640a32a96b02da580bc1/PlayerCharacter/StateMachine/IdleStateScript.gd" id="4_8e01l"]
 [ext_resource type="Script" uid="uid://blt7dest23fk0" path="res://addon/Godot-Simple-State-Machine-First-Person-Controller-4c10c31e6a10bb3c23d6640a32a96b02da580bc1/PlayerCharacter/StateMachine/WalkStateScript.gd" id="5_n7fnc"]
+[ext_resource type="Texture2D" uid="uid://ckboumdne87k3" path="res://assets/textures/kenney_crosshair-pack/PNG/Outline/crosshair140.png" id="5_q57vx"]
 [ext_resource type="Script" uid="uid://bh3rdvokmrar1" path="res://addon/Godot-Simple-State-Machine-First-Person-Controller-4c10c31e6a10bb3c23d6640a32a96b02da580bc1/PlayerCharacter/StateMachine/InairStateScript.gd" id="8_e8c05"]
+[ext_resource type="Texture2D" uid="uid://c5w1nx0a2bsa7" path="res://assets/textures/kenney_crosshair-pack/PNG/Outline/crosshair001.png" id="8_rl6fg"]
 
 [sub_resource type="Curve" id="Curve_h128t"]
 _limits = [0.0, 60.0, 0.0, 1.0]
@@ -97,6 +99,8 @@ current = true
 [node name="PlayerInteract" type="Node3D" parent="CameraHolder/Camera"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 script = ExtResource("3_fmb3c")
+normal_crosshair_img = ExtResource("8_rl6fg")
+interact_crosshair_img = ExtResource("5_q57vx")
 
 [node name="InteractRay" type="RayCast3D" parent="CameraHolder/Camera/PlayerInteract"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
@@ -142,3 +146,31 @@ metadata/_custom_type_script = "uid://blt7dest23fk0"
 [node name="InairState" type="Node" parent="StateMachine"]
 script = ExtResource("8_e8c05")
 metadata/_custom_type_script = "uid://bh3rdvokmrar1"
+
+[node name="PlayerHUD" type="CanvasLayer" parent="."]
+layer = -6
+
+[node name="Control" type="Control" parent="PlayerHUD"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Crosshair" type="TextureRect" parent="PlayerHUD/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.5
+offset_top = -22.5
+offset_right = 22.5
+offset_bottom = 22.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_rl6fg")
+expand_mode = 1

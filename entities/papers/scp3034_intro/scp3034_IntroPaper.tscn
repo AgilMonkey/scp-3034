@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dvvhwix387k64"]
+[gd_scene load_steps=7 format=3 uid="uid://dvvhwix387k64"]
 
 [ext_resource type="Script" uid="uid://c5i3rl6l4q5cw" path="res://entities/papers/scp3034_intro/scp_3034_intro_paper.gd" id="1_1so26"]
 [ext_resource type="PackedScene" uid="uid://s5w3f6532m4q" path="res://other/blender/simple-paper.glb" id="1_fw77d"]
 [ext_resource type="Script" uid="uid://bimigtgxr3x3x" path="res://commons/interactables3D/interactable3D.gd" id="3_6md3y"]
-[ext_resource type="Texture2D" uid="uid://e7i52wxu1tah" path="res://test.png" id="4_qbi5s"]
+[ext_resource type="Theme" uid="uid://40pryt5epnrs" path="res://other/scp_themes.tres" id="4_qbi5s"]
+[ext_resource type="Texture2D" uid="uid://djwqtjf2vs4sj" path="res://entities/papers/scp3034_intro/site_3034.png" id="5_2j8jh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1so26"]
 size = Vector3(0.518555, 0.0253906, 0.682617)
@@ -34,27 +35,138 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+theme = ExtResource("4_qbi5s")
 
 [node name="ExitButton" type="Button" parent="PaperUI/Control"]
 layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = 9.0
+offset_top = 7.0
+offset_right = 46.0
+offset_bottom = 38.0
 text = "Exit"
 
-[node name="TextureRect" type="TextureRect" parent="PaperUI/Control"]
+[node name="ScrollContainer" type="ScrollContainer" parent="PaperUI/Control"]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 13
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -201.0
-offset_top = -77.0
-offset_right = 201.0
-offset_bottom = 233.0
+anchor_bottom = 1.0
+offset_left = -157.0
+offset_right = 158.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_qbi5s")
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="PaperUI/Control/ScrollContainer"]
+custom_minimum_size = Vector2(315, 1110)
+layout_mode = 2
+theme_override_constants/margin_top = 100
+
+[node name="ScpDocument" type="Control" parent="PaperUI/Control/ScrollContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="PaperUI/Control/ScrollContainer/MarginContainer/ScpDocument"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.977937, 0.977937, 0.977937, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="PaperUI/Control/ScrollContainer/MarginContainer/ScpDocument"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Control" type="Control" parent="PaperUI/Control/ScrollContainer/MarginContainer/ScpDocument/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PaperUI/Control/ScrollContainer/MarginContainer/ScpDocument/MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Head" type="Label" parent="PaperUI/Control/ScrollContainer/MarginContainer/ScpDocument/MarginContainer/Control/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.672305, 1.23937e-06, 3.85046e-07, 1)
+text = "SCP-3034"
+
+[node name="Border" type="ColorRect" parent="PaperUI/Control/ScrollContainer/MarginContainer/ScpDocument/MarginContainer/Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Body" type="Control" parent="PaperUI/Control/ScrollContainer/MarginContainer/ScpDocument/MarginContainer/Control/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextBody" type="Label" parent="PaperUI/Control/ScrollContainer/MarginContainer/ScpDocument/MarginContainer/Control/VBoxContainer/Body"]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 10
+text = "Item #: SCP-3034
+
+
+Object Class: Euclid
+
+
+Special Containment Procedures:
+Three Foundation personnel are to remain on-site, with at least one employee monitoring radio frequencies for occurrences of SCP-3034. All personnel are to have at least C1 certifications in Russian. Radio equipment is to receive weekly diagnostic checks to ensure all devices are in working condition. Personnel are rotated off-site on a monthly basis.
+
+If, at any time, an occurrence of SCP-3034 is detected, personnel are to immediately respond on the same frequency with a message in Russian: все хорошо (\"All is well\"). In any instance where communication is lost with the site, MTF Epsilon-10 (\"Santa's Little Helpers\") will be mobilized to investigate and secure the area.
+
+Under no circumstances is on-site radio equipment to be used for any other purpose besides transmitting the phrase, \"все хорошо\" (\"All is well\"). Under no circumstances should an attempt be made to communicate with SCP-3034 (see attached incident report).
+
+Under no circumstances are children permitted on-site.
+
+Description:
+SCP-3034 is a reoccurring anomalous radio broadcast of unknown origin. As of this date, the transmission has only been observed within approximately 2 kilometers of Provisional Site-3034. All attempts to triangulate the source of SCP-3034 have failed. Since 1964, there have been over 627 occurrences of this broadcast. They occur at apparently random intervals — the shortest gap being two weeks, and the longest, 6 months.
+
+All occurrences of SCP-3034 follow the same format: A synthesized musical 'tone' plays for approximately 10 seconds, followed by the voice of SCP-3034-A (estimated to be a female adolescent of Russian nationality). SCP-3034-A immediately begins to count backwards from 200 in Russian (UPDATE 2015/05/17: See attached incident report). If, during this countdown, Provisional Site-3034 broadcasts \"все хорошо\" on the same frequency, SCP-3034-A immediately stops counting. The same tone from the beginning of the broadcast plays again, and the broadcast ends."
+autowrap_mode = 2
+
+[node name="site3034" type="TextureRect" parent="PaperUI/Control/ScrollContainer/MarginContainer/ScpDocument/MarginContainer/Control/VBoxContainer/Body"]
+layout_mode = 0
+offset_left = 189.0
+offset_right = 292.0
+offset_bottom = 69.0
+texture = ExtResource("5_2j8jh")
 expand_mode = 1
+stretch_mode = 4
+
+[node name="TextBody" type="Label" parent="PaperUI/Control/ScrollContainer/MarginContainer/ScpDocument/MarginContainer/Control/VBoxContainer/Body/site3034"]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 34.0
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 8
+text = "Provisional Site-3034"
+autowrap_mode = 2
 
 [connection signal="interacted" from="InteractArea" to="." method="_on_interact_area_interacted"]
+[connection signal="button_down" from="PaperUI/Control/ExitButton" to="." method="_on_exit_button_button_down"]

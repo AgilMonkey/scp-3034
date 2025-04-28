@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://40pryt5epnrs"]
+
+[ext_resource type="FontFile" uid="uid://dq5pr1xalrorm" path="res://assets/LiberationMono-Regular.ttf" id="1_u1q0b"]
+
+[resource]
+Button/fonts/font = ExtResource("1_u1q0b")
+Label/fonts/font = ExtResource("1_u1q0b")
