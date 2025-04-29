@@ -125,6 +125,14 @@ func gravityApply(delta : float):
 	elif velocity.y < 0.0: velocity.y += fallGravity * delta
 
 
+func disable_movement(disabled = true):
+	if disabled:
+		velocity = Vector3.ZERO
+		stateMachine.process_mode = Node.PROCESS_MODE_DISABLED
+	else:
+		stateMachine.process_mode = Node.PROCESS_MODE_INHERIT
+
+
 func _notification(what: int) -> void:
 	match what:
 		NOTIFICATION_DISABLED:

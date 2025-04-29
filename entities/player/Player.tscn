@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://jdlg8ppr3qyo"]
+[gd_scene load_steps=20 format=3 uid="uid://jdlg8ppr3qyo"]
 
 [ext_resource type="Script" uid="uid://d3s8yxuvpmekm" path="res://addon/Godot-Simple-State-Machine-First-Person-Controller-4c10c31e6a10bb3c23d6640a32a96b02da580bc1/PlayerCharacter/StateMachine/PlayerCharacterScript.gd" id="1_mgrs4"]
 [ext_resource type="Script" uid="uid://b0fbr48rbvn27" path="res://addon/Godot-Simple-State-Machine-First-Person-Controller-4c10c31e6a10bb3c23d6640a32a96b02da580bc1/PlayerCharacter/Camera/CameraScript.gd" id="2_5h3or"]
@@ -7,8 +7,13 @@
 [ext_resource type="Script" uid="uid://stil4xkf3tk0" path="res://addon/Godot-Simple-State-Machine-First-Person-Controller-4c10c31e6a10bb3c23d6640a32a96b02da580bc1/PlayerCharacter/StateMachine/IdleStateScript.gd" id="4_8e01l"]
 [ext_resource type="Script" uid="uid://blt7dest23fk0" path="res://addon/Godot-Simple-State-Machine-First-Person-Controller-4c10c31e6a10bb3c23d6640a32a96b02da580bc1/PlayerCharacter/StateMachine/WalkStateScript.gd" id="5_n7fnc"]
 [ext_resource type="Texture2D" uid="uid://ckboumdne87k3" path="res://assets/textures/kenney_crosshair-pack/PNG/Outline/crosshair140.png" id="5_q57vx"]
+[ext_resource type="Script" uid="uid://c5urtmxnxewqf" path="res://entities/player/footsteps_sounds.gd" id="6_ak4un"]
+[ext_resource type="AudioStream" uid="uid://ci0erwtecusie" path="res://assets/sounds/footsteps/Steps_carpet-001.ogg" id="7_kwk8g"]
+[ext_resource type="AudioStream" uid="uid://dbj782mrlpen1" path="res://assets/sounds/footsteps/Steps_carpet-005.ogg" id="8_2a181"]
 [ext_resource type="Script" uid="uid://bh3rdvokmrar1" path="res://addon/Godot-Simple-State-Machine-First-Person-Controller-4c10c31e6a10bb3c23d6640a32a96b02da580bc1/PlayerCharacter/StateMachine/InairStateScript.gd" id="8_e8c05"]
 [ext_resource type="Texture2D" uid="uid://c5w1nx0a2bsa7" path="res://assets/textures/kenney_crosshair-pack/PNG/Outline/crosshair001.png" id="8_rl6fg"]
+[ext_resource type="AudioStream" uid="uid://b2t065btuwm3w" path="res://assets/sounds/footsteps/Steps_carpet-013.ogg" id="9_aubru"]
+[ext_resource type="AudioStream" uid="uid://cumacoai0c80e" path="res://assets/sounds/footsteps/Steps_carpet-021.ogg" id="10_ax5yc"]
 
 [sub_resource type="Curve" id="Curve_h128t"]
 _limits = [0.0, 60.0, 0.0, 1.0]
@@ -130,6 +135,15 @@ debug_shape_custom_color = Color(1, 0, 0, 1)
 exclude_parent = false
 target_position = Vector3(0, -3, 0)
 debug_shape_custom_color = Color(0, 0, 0.956863, 1)
+
+[node name="FootstepsSounds" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.865671, 0)
+script = ExtResource("6_ak4un")
+steps_sound = Array[AudioStream]([ExtResource("7_kwk8g"), ExtResource("8_2a181"), ExtResource("9_aubru"), ExtResource("10_ax5yc")])
+wait_time = 1.1
+
+[node name="FootstepPlayer" type="AudioStreamPlayer3D" parent="FootstepsSounds"]
+volume_db = -16.0
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initialState")]
 script = ExtResource("3_557gw")
