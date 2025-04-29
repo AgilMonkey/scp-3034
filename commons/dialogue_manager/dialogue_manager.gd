@@ -21,6 +21,10 @@ func end_dialogue():
 	dialogue_ui.hide()
 
 
+func clear_dialogue():
+	disable()
+
+
 func disable():
 	if cur_screen_timer != null:
 		cur_screen_timer.disconnect("timeout", end_dialogue)
