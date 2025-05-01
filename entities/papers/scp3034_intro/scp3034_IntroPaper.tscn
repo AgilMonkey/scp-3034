@@ -24,7 +24,7 @@ script = ExtResource("3_6md3y")
 shape = SubResource("BoxShape3D_1so26")
 
 [node name="PaperUI" type="CanvasLayer" parent="."]
-layer = -5
+layer = -12
 visible = false
 
 [node name="Control" type="Control" parent="PaperUI"]

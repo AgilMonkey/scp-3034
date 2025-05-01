@@ -1,9 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://0l3y8fwuubxl"]
+[gd_scene load_steps=14 format=3 uid="uid://0l3y8fwuubxl"]
 
 [ext_resource type="Script" uid="uid://cm35jd74c1wcv" path="res://entities/radio/radio_timer.gd" id="1_72vy1"]
+[ext_resource type="Script" uid="uid://ynnwta6x4w3o" path="res://entities/radio/radio.gd" id="1_e6td6"]
 [ext_resource type="AudioStream" uid="uid://c2ma6nqk04isw" path="res://assets/sounds/start_audio.ogg" id="1_qdtoy"]
 [ext_resource type="Script" uid="uid://dyk1o48mgb0k5" path="res://entities/radio/radio_interact.gd" id="1_qntic"]
 [ext_resource type="Theme" uid="uid://40pryt5epnrs" path="res://other/scp_themes.tres" id="4_6w1mp"]
+[ext_resource type="Script" uid="uid://b622tr37ojs3x" path="res://entities/radio/counting_down_script.gd" id="4_8nais"]
+[ext_resource type="AudioStream" uid="uid://b80yhc37qsnyn" path="res://assets/sounds/counting_down.ogg" id="5_wgxkr"]
+[ext_resource type="Script" uid="uid://ddrar0iqp2s11" path="res://entities/radio/dialogue_manager_talk.gd" id="7_bekii"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_i3plj"]
 
@@ -13,7 +17,207 @@ size = Vector3(4.08887, 1.71108, 1.31152)
 [sub_resource type="BoxShape3D" id="BoxShape3D_qdtoy"]
 size = Vector3(1.22876, 0.533203, 1)
 
+[sub_resource type="Animation" id="Animation_8nais"]
+resource_name = "start"
+length = 125.0
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CountingDownAudio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("5_wgxkr")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(120.367),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"radio_end"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DialogueManagerTalk")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.03333, 2.7, 5.2, 7.6, 10.3333, 13.0333, 15.2667, 17.6333, 19.9333, 22.2, 23.8, 25.8, 29.6333, 32.4, 35.5, 39.2333, 42.6667, 45.4333, 48.1, 50.9, 53.8, 55.9667, 59, 62.0333, 64.0333, 66.8667, 69.2, 71.4333, 73.8333, 76.4333, 78.9667, 80.6667, 83.1, 85.5, 87.2667, 89.7667, 92.4333, 94.8, 97.2, 99.7, 102, 103.867, 105.933, 107.8, 109.7, 111.667, 113.4, 115.1, 116.633, 118.767),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": ["50"],
+"method": &"start_count_dialogue"
+}, {
+"args": ["49"],
+"method": &"start_count_dialogue"
+}, {
+"args": ["48"],
+"method": &"start_count_dialogue"
+}, {
+"args": ["47"],
+"method": &"start_count_dialogue"
+}, {
+"args": ["46"],
+"method": &"start_count_dialogue"
+}, {
+"args": ["45"],
+"method": &"start_count_dialogue"
+}, {
+"args": ["44"],
+"method": &"start_count_dialogue"
+}, {
+"args": ["43"],
+"method": &"start_count_dialogue"
+}, {
+"args": ["42"],
+"method": &"start_count_dialogue"
+}, {
+"args": ["41"],
+"method": &"start_count_dialogue"
+}, {
+"args": ["40"],
+"method": &"start_count_dialogue"
+}, {
+"args": ["39"],
+"method": &"start_count_dialogue"
+}, {
+"args": ["38"],
+"method": &"start_count_dialogue"
+}, {
+"args": ["37"],
+"method": &"start_count_dialogue"
+}, {
+"args": ["36"],
+"method": &"start_count_dialogue"
+}, {
+"args": ["35"],
+"method": &"start_count_dialogue"
+}, {
+"args": ["34"],
+"method": &"start_count_dialogue"
+}, {
+"args": ["33"],
+"method": &"start_count_dialogue"
+}, {
+"args": ["32"],
+"method": &"start_count_dialogue"
+}, {
+"args": ["31"],
+"method": &"start_count_dialogue"
+}, {
+"args": ["30"],
+"method": &"start_count_dialogue"
+}, {
+"args": ["29"],
+"method": &"start_count_dialogue"
+}, {
+"args": ["28"],
+"method": &"start_count_dialogue"
+}, {
+"args": ["27"],
+"method": &"start_count_dialogue"
+}, {
+"args": ["26"],
+"method": &"start_count_dialogue"
+}, {
+"args": ["25"],
+"method": &"start_count_dialogue"
+}, {
+"args": ["24"],
+"method": &"start_count_dialogue"
+}, {
+"args": ["23"],
+"method": &"start_count_dialogue"
+}, {
+"args": ["22"],
+"method": &"start_count_dialogue"
+}, {
+"args": ["21"],
+"method": &"start_count_dialogue"
+}, {
+"args": ["20"],
+"method": &"start_count_dialogue"
+}, {
+"args": ["19"],
+"method": &"start_count_dialogue"
+}, {
+"args": ["18"],
+"method": &"start_count_dialogue"
+}, {
+"args": ["17"],
+"method": &"start_count_dialogue"
+}, {
+"args": ["16"],
+"method": &"start_count_dialogue"
+}, {
+"args": ["15"],
+"method": &"start_count_dialogue"
+}, {
+"args": ["14"],
+"method": &"start_count_dialogue"
+}, {
+"args": ["13"],
+"method": &"start_count_dialogue"
+}, {
+"args": ["12"],
+"method": &"start_count_dialogue"
+}, {
+"args": ["11"],
+"method": &"start_count_dialogue"
+}, {
+"args": ["10"],
+"method": &"start_count_dialogue"
+}, {
+"args": ["9"],
+"method": &"start_count_dialogue"
+}, {
+"args": ["8"],
+"method": &"start_count_dialogue"
+}, {
+"args": ["7"],
+"method": &"start_count_dialogue"
+}, {
+"args": ["6"],
+"method": &"start_count_dialogue"
+}, {
+"args": ["5"],
+"method": &"start_count_dialogue"
+}, {
+"args": ["4"],
+"method": &"start_count_dialogue"
+}, {
+"args": ["3"],
+"method": &"start_count_dialogue"
+}, {
+"args": ["2"],
+"method": &"start_count_dialogue"
+}, {
+"args": ["1"],
+"method": &"start_count_dialogue"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wgxkr"]
+_data = {
+&"start": SubResource("Animation_8nais")
+}
+
 [node name="Radio" type="Node3D"]
+script = ExtResource("1_e6td6")
 
 [node name="Mesh" type="Node3D" parent="."]
 metadata/_edit_lock_ = true
@@ -52,13 +256,30 @@ script = ExtResource("1_72vy1")
 [node name="StartRadio" type="AudioStreamPlayer3D" parent="RadioTimer"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1881, 0)
 stream = ExtResource("1_qdtoy")
-unit_size = 5.0
+unit_size = 4.0
 
 [node name="CountdownTimer" type="Timer" parent="RadioTimer"]
 one_shot = true
 
 [node name="CamPivot" type="Node3D" parent="."]
 transform = Transform3D(0.86163, 0.0110716, 0.507416, 0, 0.999762, -0.0218143, -0.507537, 0.0187959, 0.861425, 0.806012, 1.23792, 1.36834)
+
+[node name="CountingDownScript" type="Node3D" parent="."]
+script = ExtResource("4_8nais")
+
+[node name="CountingDownAudio" type="AudioStreamPlayer3D" parent="CountingDownScript"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.20245, 0)
+volume_db = -2.0
+unit_size = 4.0
+
+[node name="AudioPlayer" type="AnimationPlayer" parent="CountingDownScript"]
+callback_mode_method = 1
+libraries = {
+&"": SubResource("AnimationLibrary_wgxkr")
+}
+
+[node name="DialogueManagerTalk" type="Node" parent="CountingDownScript"]
+script = ExtResource("7_bekii")
 
 [node name="RadioUI" type="CanvasLayer" parent="."]
 layer = -5
@@ -99,4 +320,6 @@ offset_bottom = 33.0
 text = "Back"
 
 [connection signal="button_down" from="RadioUI/Control/AllIsWellButton" to="RadioTimer" method="_on_all_is_well_button_button_down"]
+[connection signal="draw" from="RadioUI/Control/AllIsWellButton" to="RadioInteract" method="_on_all_is_well_button_draw"]
+[connection signal="hidden" from="RadioUI/Control/AllIsWellButton" to="RadioInteract" method="_on_all_is_well_button_hidden"]
 [connection signal="button_down" from="RadioUI/Control/BackButton" to="RadioInteract" method="_on_back_button_button_down"]

@@ -1,11 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://dciqclavdup0n"]
+[gd_scene load_steps=13 format=3 uid="uid://dciqclavdup0n"]
 
 [ext_resource type="PackedScene" uid="uid://jdlg8ppr3qyo" path="res://entities/player/Player.tscn" id="1_0o3xy"]
-[ext_resource type="Material" uid="uid://d0m1xix2ctp7g" path="res://levels/main/floor_mat.tres" id="1_gonaa"]
+[ext_resource type="Script" uid="uid://8vr87yh8srvd" path="res://levels/main/main.gd" id="1_q42nm"]
 [ext_resource type="Texture2D" uid="uid://e7i52wxu1tah" path="res://test.png" id="3_f6gjy"]
 [ext_resource type="PackedScene" uid="uid://0l3y8fwuubxl" path="res://entities/radio/radio.tscn" id="4_gonaa"]
 [ext_resource type="PackedScene" uid="uid://dvvhwix387k64" path="res://entities/papers/scp3034_intro/scp3034_IntroPaper.tscn" id="5_iab0w"]
 [ext_resource type="PackedScene" uid="uid://bycv3g6jaelbd" path="res://entities/objects/dont_let_her_finish/dont_let_her_finish.tscn" id="6_3ymrs"]
+[ext_resource type="PackedScene" uid="uid://bkx086vqj4sru" path="res://assets/models/tower.glb" id="7_q42nm"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0o3xy"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -19,10 +20,15 @@ background_mode = 2
 sky = SubResource("Sky_vc640")
 tonemap_mode = 2
 
-[sub_resource type="BoxMesh" id="BoxMesh_fl30x"]
-size = Vector3(15, 1, 15)
+[sub_resource type="BoxShape3D" id="BoxShape3D_3ymrs"]
+size = Vector3(23, 1, 15)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q42nm"]
+size = Vector3(9.06934, 10.2559, 1)
 
 [node name="Main" type="Node3D"]
+script = ExtResource("1_q42nm")
+credit_scene = "uid://cdn577k5844qu"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_f6gjy")
@@ -33,14 +39,8 @@ light_energy = 0.015
 shadow_enabled = true
 sky_mode = 1
 
-[node name="Ground" type="CSGMesh3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
-material_override = ExtResource("1_gonaa")
-use_collision = true
-mesh = SubResource("BoxMesh_fl30x")
-
 [node name="PlayerCharacter" parent="." instance=ExtResource("1_0o3xy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.55252, 1, 0.0179947)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.54199, 1, 0.0179947)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 visible = false
@@ -79,10 +79,37 @@ Object Class: Euclid
 Special Containment Procedures:"
 
 [node name="Radio" parent="." instance=ExtResource("4_gonaa")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.27505, 9.53674e-07, 0.540339)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.56619, 9.53674e-07, -0.235121)
 
-[node name="Scp3034IntroPaper" parent="." instance=ExtResource("5_iab0w")]
-transform = Transform3D(0.503955, 0, 0.86373, 0, 1, 0, -0.86373, 0, 0.503955, -6.15294, 1.00392, -0.710932)
+[node name="Scp3034IntroPaper" parent="Radio" instance=ExtResource("5_iab0w")]
+transform = Transform3D(0.86373, 0, -0.503955, 0, 1, 0, 0.503955, 0, 0.86373, 1.25127, 1.00392, 0.12211)
 
-[node name="DontLetHerFinish" parent="." instance=ExtResource("6_3ymrs")]
-transform = Transform3D(-0.0968185, 0, 0.995302, 0, 1, 0, -0.995302, 0, -0.0968185, -5.98577, 1.0012, 1.89096)
+[node name="DontLetHerFinish" parent="Radio" instance=ExtResource("6_3ymrs")]
+transform = Transform3D(0.995302, 0, 0.0968185, 0, 1, 0, -0.0968185, 0, 0.995302, -1.35062, 1.0012, 0.28928)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_3ymrs")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 4.73193)
+shape = SubResource("BoxShape3D_q42nm")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.65236, -0.5, -0.108659)
+shape = SubResource("BoxShape3D_q42nm")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.65558, -0.5, -0.108659)
+shape = SubResource("BoxShape3D_q42nm")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.0544784, -0.5, -4.73078)
+shape = SubResource("BoxShape3D_q42nm")
+
+[node name="tower" parent="." instance=ExtResource("7_q42nm")]
+transform = Transform3D(-0.6, 0, -5.24537e-08, 0, 0.6, 0, 5.24537e-08, 0, -0.6, 0, 0, 0)
+
+[connection signal="countdown_ended" from="Radio" to="." method="game_over"]

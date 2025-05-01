@@ -12,11 +12,11 @@ var countdown_t
 @onready var start_radio_audio: AudioStreamPlayer3D = $StartRadio
 @onready var countdown_timer: Timer = $CountdownTimer
 @onready var all_is_well_button: Button = $"../RadioUI/Control/AllIsWellButton"
+@onready var counting_down_script: Node3D = $"../CountingDownScript"
 
 
 func _ready() -> void:
 	start_radio_random_timer()
-
 
 func _process(delta: float) -> void:
 	if not countdown_timer.is_stopped():
@@ -37,15 +37,12 @@ func start_radio():
 
 func countdown():
 	all_is_well_button.show()
-	countdown_timer.wait_time = max_countdown_timer
-	countdown_timer.start()
-	await countdown_timer.timeout
-	print("GAME OVER")
+	counting_down_script.play()
 
 
 func _on_all_is_well_button_button_down() -> void:
 	all_is_well_button.hide()
-	countdown_timer.stop()
+	counting_down_script.stop()
 	DialogueManager.start_dialogue("All is well", 3.0)
 	await get_tree().create_timer(3.0).timeout
 	start_radio_random_timer()

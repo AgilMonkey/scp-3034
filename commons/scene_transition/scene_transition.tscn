@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://bhge1ml11ns5r"]
+
+[ext_resource type="Script" uid="uid://dxjujs8rlkcr0" path="res://commons/scene_transition/scene_transition.gd" id="1_ly0mg"]
+
+[node name="SceneTransition" type="Node"]
+process_mode = 3
+process_priority = 10
+script = ExtResource("1_ly0mg")
+
+[node name="UI" type="CanvasLayer" parent="."]
+layer = 5
+
+[node name="TransUI" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Black" type="ColorRect" parent="UI/TransUI"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)

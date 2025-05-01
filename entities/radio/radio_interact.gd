@@ -24,6 +24,7 @@ func interact():
 
 
 func stop_interacting():
+	DialogueManager.put_dialogue_ui_normally()
 	set_process_input(false)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	radio_ui.hide()
@@ -65,3 +66,11 @@ func show_ui():
 
 func _on_back_button_button_down() -> void:
 	stop_interacting()
+
+
+func _on_all_is_well_button_draw() -> void:
+	DialogueManager.put_dialogue_ui_up_a_bit()
+
+
+func _on_all_is_well_button_hidden() -> void:
+	DialogueManager.put_dialogue_ui_normally()
