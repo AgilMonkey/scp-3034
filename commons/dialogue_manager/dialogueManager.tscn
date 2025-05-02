@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bqfekm51xntx1"]
 
-[ext_resource type="Theme" uid="uid://40pryt5epnrs" path="res://other/scp_themes.tres" id="1_fkec0"]
+[ext_resource type="Theme" uid="uid://40pryt5epnrs" path="res://themes/scp_themes.tres" id="1_fkec0"]
 [ext_resource type="Script" uid="uid://catn4el8quyjl" path="res://commons/dialogue_manager/dialogue_manager.gd" id="1_t8v86"]
 
 [node name="DialogueManager" type="Node"]
