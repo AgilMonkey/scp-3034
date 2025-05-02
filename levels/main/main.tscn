@@ -45,6 +45,7 @@ sky_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.21495, 0)
 light_color = Color(0.656202, 0.461972, 0.19685, 1)
 light_energy = 6.005
+shadow_enabled = true
 omni_range = 6.085
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("1_0o3xy")]

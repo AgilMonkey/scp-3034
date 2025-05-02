@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://0l3y8fwuubxl"]
+[gd_scene load_steps=16 format=3 uid="uid://0l3y8fwuubxl"]
 
 [ext_resource type="Script" uid="uid://cm35jd74c1wcv" path="res://entities/radio/radio_timer.gd" id="1_72vy1"]
 [ext_resource type="Script" uid="uid://ynnwta6x4w3o" path="res://entities/radio/radio.gd" id="1_e6td6"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://b622tr37ojs3x" path="res://entities/radio/counting_down_script.gd" id="4_8nais"]
 [ext_resource type="AudioStream" uid="uid://b80yhc37qsnyn" path="res://assets/sounds/counting_down.ogg" id="5_wgxkr"]
 [ext_resource type="Script" uid="uid://ddrar0iqp2s11" path="res://entities/radio/dialogue_manager_talk.gd" id="7_bekii"]
+[ext_resource type="PackedScene" uid="uid://bcdf36hnxqsek" path="res://assets/models/table/table.glb" id="10_8s2wt"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_i3plj"]
 
@@ -226,6 +227,7 @@ metadata/_edit_group_ = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh"]
 transform = Transform3D(4, 0, 0, 0, 1, 0, 0, 0, 1.25, 0, 0.5, 0)
+visible = false
 mesh = SubResource("BoxMesh_i3plj")
 skeleton = NodePath("../..")
 
@@ -234,6 +236,12 @@ transform = Transform3D(1.03783, 0, 0.15565, 0, 0.45, 0, -0.298848, 0, 0.540536,
 visible = false
 mesh = SubResource("BoxMesh_i3plj")
 skeleton = NodePath("../..")
+
+[node name="Table" type="Node3D" parent="Mesh"]
+transform = Transform3D(1.47402, 0, 0, 0, 0.630473, 0, 0, 0, 0.861139, 0.0626193, -0.020463, 0)
+
+[node name="table" parent="Mesh/Table" instance=ExtResource("10_8s2wt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.03723, 0, 1.9597)
 
 [node name="radio" parent="Mesh" instance=ExtResource("2_xowou")]
 transform = Transform3D(0.0633316, 0, -0.474017, 0, 0.478229, 0, 0.474017, 0, 0.0633316, 0.016885, 1.29813, 0.0207175)
