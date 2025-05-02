@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://c7baslkr0xc5x"]
+
+[ext_resource type="Texture2D" uid="uid://b3itmv6h1dqy2" path="res://assets/tree_pack_1.1/textures/tree07.png" id="1_hdj87"]
+
+[resource]
+transparency = 1
+albedo_texture = ExtResource("1_hdj87")
+metallic_specular = 0.0

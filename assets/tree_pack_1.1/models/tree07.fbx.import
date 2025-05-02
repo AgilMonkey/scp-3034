@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bkx086vqj4sru"
-path="res://.godot/imported/tower.glb-ef6c5f42b36c41ae1d78c4a6dc50754b.scn"
+uid="uid://b5in7c58j6aca"
+path="res://.godot/imported/tree07.fbx-4b966e34fefd91ee7499d82771c09b3f.scn"
 
 [deps]
 
-source_file="res://assets/models/tower.glb"
-dest_files=["res://.godot/imported/tower.glb-ef6c5f42b36c41ae1d78c4a6dc50754b.scn"]
+source_file="res://assets/tree_pack_1.1/models/tree07.fbx"
+dest_files=["res://.godot/imported/tree07.fbx-4b966e34fefd91ee7499d82771c09b3f.scn"]
 
 [params]
 
@@ -28,17 +28,18 @@ meshes/force_disable_compression=false
 skins/use_named_skins=true
 animation/import=true
 animation/fps=30
-animation/trimming=false
+animation/trimming=true
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "materials": {
-"Window": {
+"tree07": {
 "use_external/enabled": true,
-"use_external/path": "uid://cv3l5pnu5ipg1"
+"use_external/path": "uid://c7baslkr0xc5x"
 }
 }
 }
-gltf/naming_version=1
-gltf/embedded_image_handling=1
+fbx/importer=0
+fbx/allow_geometry_helper_nodes=false
+fbx/embedded_image_handling=1
