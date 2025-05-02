@@ -17,6 +17,8 @@ sky_material = SubResource("ProceduralSkyMaterial_0o3xy")
 
 [sub_resource type="Environment" id="Environment_f6gjy"]
 background_mode = 2
+background_color = Color(1, 1, 1, 1)
+background_energy_multiplier = 0.8
 sky = SubResource("Sky_vc640")
 tonemap_mode = 2
 
@@ -34,10 +36,16 @@ credit_scene = "uid://cdn577k5844qu"
 environment = SubResource("Environment_f6gjy")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
-light_energy = 0.015
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, -4, 3, -10)
+light_energy = 0.23
 shadow_enabled = true
 sky_mode = 1
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.21495, 0)
+light_color = Color(0.656202, 0.461972, 0.19685, 1)
+light_energy = 6.005
+omni_range = 6.085
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("1_0o3xy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.54199, 1, 0.0179947)

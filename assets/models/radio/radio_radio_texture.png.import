@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1o3cpqmnqw4y"
-path.s3tc="res://.godot/imported/simple-paper-tex.png-52dd56606da1183ba84115f62f0b6345.s3tc.ctex"
+uid="uid://6clhxgcq85oy"
+path.s3tc="res://.godot/imported/radio_radio_texture.png-b858c2517abada0ad122115e7119ae5a.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "319cb099369f8450e656c1dbf5237b42"
+}
 
 [deps]
 
-source_file="res://other/blender/simple-paper-tex.png"
-dest_files=["res://.godot/imported/simple-paper-tex.png-52dd56606da1183ba84115f62f0b6345.s3tc.ctex"]
+source_file="res://assets/models/radio/radio_radio_texture.png"
+dest_files=["res://.godot/imported/radio_radio_texture.png-b858c2517abada0ad122115e7119ae5a.s3tc.ctex"]
 
 [params]
 

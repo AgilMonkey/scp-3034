@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://0l3y8fwuubxl"]
+[gd_scene load_steps=15 format=3 uid="uid://0l3y8fwuubxl"]
 
 [ext_resource type="Script" uid="uid://cm35jd74c1wcv" path="res://entities/radio/radio_timer.gd" id="1_72vy1"]
 [ext_resource type="Script" uid="uid://ynnwta6x4w3o" path="res://entities/radio/radio.gd" id="1_e6td6"]
 [ext_resource type="AudioStream" uid="uid://c2ma6nqk04isw" path="res://assets/sounds/start_audio.ogg" id="1_qdtoy"]
 [ext_resource type="Script" uid="uid://dyk1o48mgb0k5" path="res://entities/radio/radio_interact.gd" id="1_qntic"]
+[ext_resource type="PackedScene" uid="uid://h0f1ysuielu1" path="res://assets/models/radio/radio.glb" id="2_xowou"]
 [ext_resource type="Theme" uid="uid://40pryt5epnrs" path="res://themes/scp_themes.tres" id="4_6w1mp"]
 [ext_resource type="Script" uid="uid://b622tr37ojs3x" path="res://entities/radio/counting_down_script.gd" id="4_8nais"]
 [ext_resource type="AudioStream" uid="uid://b80yhc37qsnyn" path="res://assets/sounds/counting_down.ogg" id="5_wgxkr"]
@@ -15,7 +16,7 @@
 size = Vector3(4.08887, 1.71108, 1.31152)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qdtoy"]
-size = Vector3(1.22876, 0.533203, 1)
+size = Vector3(1.15198, 0.651367, 1)
 
 [sub_resource type="Animation" id="Animation_8nais"]
 resource_name = "start"
@@ -230,8 +231,12 @@ skeleton = NodePath("../..")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Mesh"]
 transform = Transform3D(1.03783, 0, 0.15565, 0, 0.45, 0, -0.298848, 0, 0.540536, 0, 1.2177, 0)
+visible = false
 mesh = SubResource("BoxMesh_i3plj")
 skeleton = NodePath("../..")
+
+[node name="radio" parent="Mesh" instance=ExtResource("2_xowou")]
+transform = Transform3D(0.0633316, 0, -0.474017, 0, 0.478229, 0, 0.474017, 0, 0.0633316, 0.016885, 1.29813, 0.0207175)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 metadata/_edit_lock_ = true
@@ -247,6 +252,7 @@ collision_mask = 2
 script = ExtResource("1_qntic")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RadioInteract"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0383912, 0.059082, 0)
 shape = SubResource("BoxShape3D_qdtoy")
 debug_color = Color(0.940648, 0.168652, 0.449195, 0.42)
 
