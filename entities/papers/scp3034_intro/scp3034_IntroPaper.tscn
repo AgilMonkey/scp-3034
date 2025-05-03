@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dvvhwix387k64"]
 
 [ext_resource type="Script" uid="uid://c5i3rl6l4q5cw" path="res://entities/papers/scp3034_intro/scp_3034_intro_paper.gd" id="1_1so26"]
-[ext_resource type="PackedScene" uid="uid://s5w3f6532m4q" path="res://other/blender/simple-paper.glb" id="1_fw77d"]
+[ext_resource type="PackedScene" uid="uid://s5w3f6532m4q" path="res://other/blender/simple paper/simple-paper.glb" id="1_fw77d"]
 [ext_resource type="Script" uid="uid://bimigtgxr3x3x" path="res://commons/interactables3D/interactable3D.gd" id="3_6md3y"]
 [ext_resource type="Theme" uid="uid://40pryt5epnrs" path="res://themes/scp_themes.tres" id="4_qbi5s"]
 [ext_resource type="Texture2D" uid="uid://djwqtjf2vs4sj" path="res://entities/papers/scp3034_intro/site_3034.png" id="5_2j8jh"]
