@@ -285,6 +285,7 @@ script = ExtResource("4_8nais")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.20245, 0)
 volume_db = -2.0
 unit_size = 4.0
+playback_type = 1
 
 [node name="AudioPlayer" type="AnimationPlayer" parent="CountingDownScript"]
 callback_mode_method = 1
