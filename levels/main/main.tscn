@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dciqclavdup0n"]
+[gd_scene load_steps=21 format=3 uid="uid://dciqclavdup0n"]
 
 [ext_resource type="PackedScene" uid="uid://jdlg8ppr3qyo" path="res://entities/player/Player.tscn" id="1_0o3xy"]
 [ext_resource type="Script" uid="uid://8vr87yh8srvd" path="res://levels/main/main.gd" id="1_q42nm"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bycv3g6jaelbd" path="res://entities/objects/dont_let_her_finish/dont_let_her_finish.tscn" id="6_3ymrs"]
 [ext_resource type="PackedScene" uid="uid://bkx086vqj4sru" path="res://assets/models/tower.glb" id="7_q42nm"]
 [ext_resource type="PackedScene" uid="uid://b5in7c58j6aca" path="res://assets/tree_pack_1.1/models/tree07.fbx" id="9_sqa4f"]
+[ext_resource type="PackedScene" uid="uid://bcdf36hnxqsek" path="res://assets/models/table/table.glb" id="10_20bwc"]
 
 [sub_resource type="Environment" id="Environment_f6gjy"]
 background_mode = 1
@@ -80,7 +81,7 @@ environment = SubResource("Environment_f6gjy")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.44843, 0.774069, -0.446909, 0, 0.5, 0.866025, 0.893818, 0.388352, -0.224215, -4, 3, -10)
-light_color = Color(0.91664, 0.91664, 0.91664, 1)
+light_color = Color(0.226601, 0.345495, 0.766673, 1)
 light_energy = 0.4
 shadow_enabled = true
 
@@ -274,5 +275,11 @@ draw_pass_1 = SubResource("QuadMesh_sqa4f")
 [node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.977783, 2.10437, 0.139587)
 size = Vector3(14.9048, 15.1853, 13.5432)
+
+[node name="Table" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.65, 0, 0, 0, 0.7, 0.42475, -0.00705154, 3.66446)
+
+[node name="table" parent="Table" instance=ExtResource("10_20bwc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.03723, 0, 1.9597)
 
 [connection signal="countdown_ended" from="Radio" to="." method="game_over"]
