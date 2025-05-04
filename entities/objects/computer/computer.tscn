@@ -208,6 +208,21 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 8
 text = "Audio analysis #5"
 
+[node name="Button7" type="Button" parent="ComputerUI/ComputerControl/Screen/EmailPages/HTabsContainer/Tabs"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Incident #1"
+
+[node name="Button8" type="Button" parent="ComputerUI/ComputerControl/Screen/EmailPages/HTabsContainer/Tabs"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Incident #2"
+
+[node name="Button9" type="Button" parent="ComputerUI/ComputerControl/Screen/EmailPages/HTabsContainer/Tabs"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Foundation Msg"
+
 [node name="Content" type="Panel" parent="ComputerUI/ComputerControl/Screen/EmailPages/HTabsContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -523,6 +538,173 @@ TO: Dr. Emerson <remerson@scp.foundation>
 SUBJECT: RE: RE: Audio Analysis of SCP-3034
 
 Agreed."
+fit_content = true
+
+[node name="Content7" type="Control" parent="ComputerUI/ComputerControl/Screen/EmailPages/HTabsContainer/Content"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ComputerUI/ComputerControl/Screen/EmailPages/HTabsContainer/Content/Content7"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ComputerUI/ComputerControl/Screen/EmailPages/HTabsContainer/Content/Content7/MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ComputerUI/ComputerControl/Screen/EmailPages/HTabsContainer/Content/Content7/MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_bottom = 60
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ComputerUI/ComputerControl/Screen/EmailPages/HTabsContainer/Content/Content7/MarginContainer/ScrollContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ComputerUI/ComputerControl/Screen/EmailPages/HTabsContainer/Content/Content7/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 12
+text = "INCIDENT REPORT
+
+INCIDENT #: 3034-201
+DATE OF OCCURRENCE: 2015/05/17
+
+A Foundation researcher assigned to SCP-3034 (Dr. Uriel Willis) misappropriated radio equipment to conduct an unofficial experiment. During an occurrence of SCP-3034, she attempted to establish communication with SCP-3034-A.
+
+SCP-3034-A ceased counting. Approximately 5 seconds later, an extremely powerful broadcast was detected. This signal consisted of a high-pitched 'screech' which inflicted significant levels of pain, dizziness, and disorientation to all personnel present. The signal continued for a period of 25 seconds, at which point Dr. Willis used Provisional Site-3034's radio equipment to transmit the appropriate phrase (\"все хорошо\"). The broadcast immediately ceased.
+
+Within the next 24 hours, researchers noted a significant increase in missing children cases across the world. In the majority of these cases, the disappearances occurred at a time roughly correlating with the 25-second broadcast. All cases believed to be associated with SCP-3034 have remained unsolved.
+
+Disciplinary action against Dr. Willis is still under review. Special containment procedures have been updated to reflect the importance of not interacting with SCP-3034-A outside of stated parameters.
+
+All tests regarding SCP-3034 are suspended until further notice."
+fit_content = true
+
+[node name="Content8" type="Control" parent="ComputerUI/ComputerControl/Screen/EmailPages/HTabsContainer/Content"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ComputerUI/ComputerControl/Screen/EmailPages/HTabsContainer/Content/Content8"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ComputerUI/ComputerControl/Screen/EmailPages/HTabsContainer/Content/Content8/MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ComputerUI/ComputerControl/Screen/EmailPages/HTabsContainer/Content/Content8/MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_bottom = 60
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ComputerUI/ComputerControl/Screen/EmailPages/HTabsContainer/Content/Content8/MarginContainer/ScrollContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ComputerUI/ComputerControl/Screen/EmailPages/HTabsContainer/Content/Content8/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 12
+text = "INCIDENT REPORT
+
+INCIDENT #: 3034-202
+DATE OF OCCURRENCE: 2015/06/04
+
+An occurrence of SCP-3034 was detected. Personnel present responded with the appropriate transmission, leading to a cessation of SCP-3034. However, two distinct changes were noted:
+
+- SCP-3034's audio distortion was significantly louder.
+- SCP-3034-A began at 199."
+fit_content = true
+
+[node name="Content9" type="Control" parent="ComputerUI/ComputerControl/Screen/EmailPages/HTabsContainer/Content"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ComputerUI/ComputerControl/Screen/EmailPages/HTabsContainer/Content/Content9"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ComputerUI/ComputerControl/Screen/EmailPages/HTabsContainer/Content/Content9/MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ComputerUI/ComputerControl/Screen/EmailPages/HTabsContainer/Content/Content9/MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_bottom = 60
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ComputerUI/ComputerControl/Screen/EmailPages/HTabsContainer/Content/Content9/MarginContainer/ScrollContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ComputerUI/ComputerControl/Screen/EmailPages/HTabsContainer/Content/Content9/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 12
+bbcode_enabled = true
+text = "DATE: 2019/12/05
+FROM: Dr. Poly <polyese@scp.foundation>
+TO: Dr. Vanya <vanyaschull@scp.foundation>
+SUBJECT: SCP-3034: Directive Update
+
+New commands from the Site Director, let SCP-3034 count to 0. There will be no further communication.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[right]The howling moon"
 fit_content = true
 
 [node name="Vignete" type="TextureRect" parent="ComputerUI/ComputerControl"]
