@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://1rpsqcx7lkr2"]
+[gd_scene load_steps=9 format=3 uid="uid://1rpsqcx7lkr2"]
 
 [ext_resource type="PackedScene" uid="uid://bsyn2ccma6afs" path="res://entities/objects/computer/computer_model/Computer Retro.glb" id="1_7pr6t"]
 [ext_resource type="Script" uid="uid://drk4r66qns62r" path="res://entities/objects/computer/computer.gd" id="1_sxe8h"]
 [ext_resource type="Script" uid="uid://bimigtgxr3x3x" path="res://commons/interactables3D/interactable3D.gd" id="2_i4pvb"]
 [ext_resource type="Theme" uid="uid://40pryt5epnrs" path="res://themes/scp_themes.tres" id="4_ev5ja"]
+[ext_resource type="Script" uid="uid://c2tjfwfjfjssv" path="res://entities/objects/computer/login.gd" id="5_in2mm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_i4pvb"]
 size = Vector3(0.543945, 0.586914, 0.576599)
@@ -77,6 +78,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+script = ExtResource("5_in2mm")
 
 [node name="Label" type="Label" parent="ComputerUI/ComputerControl/Screen/Login"]
 layout_mode = 1
@@ -108,6 +110,26 @@ grow_horizontal = 2
 grow_vertical = 2
 placeholder_text = "Enter your password"
 
+[node name="WrongText" type="Label" parent="ComputerUI/ComputerControl/Screen/Login/LineEdit"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 84.0
+offset_top = -7.0
+offset_right = 193.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "Wrong Password!"
+
+[node name="WrongTextTimer" type="Timer" parent="ComputerUI/ComputerControl/Screen/Login/LineEdit/WrongText"]
+
 [node name="EnterButton" type="Button" parent="ComputerUI/ComputerControl/Screen/Login"]
 layout_mode = 1
 anchors_preset = 8
@@ -123,17 +145,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 10
 text = "Enter"
-
-[node name="WrongText" type="Label" parent="ComputerUI/ComputerControl/Screen/Login"]
-visible = false
-layout_mode = 0
-offset_left = 341.0
-offset_top = 124.0
-offset_right = 450.0
-offset_bottom = 138.0
-theme_override_colors/font_color = Color(1, 0, 0, 1)
-theme_override_font_sizes/font_size = 12
-text = "Wrong Password!"
 
 [node name="Vignete" type="TextureRect" parent="ComputerUI/ComputerControl"]
 layout_mode = 1
@@ -178,4 +189,5 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
+[connection signal="button_down" from="ComputerUI/ComputerControl/Screen/Login/EnterButton" to="ComputerUI/ComputerControl/Screen/Login" method="_on_enter_button_button_down"]
 [connection signal="button_down" from="ComputerUI/ComputerControl/BackButton" to="." method="_on_back_button_button_down"]
