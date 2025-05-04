@@ -5,13 +5,15 @@ extends Node3D
 @onready var computer_ui: CanvasLayer = $ComputerUI
 @onready var computer_control: Control = $ComputerUI/ComputerControl
 @onready var fade: Control = $ComputerUI/Fade
+@onready var login: Control = $ComputerUI/ComputerControl/Screen/Login
+@onready var email_pages: Control = $ComputerUI/ComputerControl/Screen/EmailPages
 
 
 func _ready() -> void:
 	interactable.interacted.connect(interact)
 	
-	computer_ui.hide()
-	computer_control.hide()
+	#computer_ui.hide()
+	#computer_control.hide()
 	fade.hide()
 
 
@@ -60,3 +62,8 @@ func fade_out():
 
 func _on_back_button_button_down() -> void:
 	stop_interact()
+
+
+func _on_login_login_successful() -> void:
+	login.hide()
+	email_pages.show()

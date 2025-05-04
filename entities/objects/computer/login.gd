@@ -1,6 +1,8 @@
 extends Control
 
 
+signal login_successful
+
 @export var password: String = "150167"
 
 @onready var line_edit: LineEdit = $LineEdit
@@ -11,7 +13,7 @@ extends Control
 func _on_enter_button_button_down() -> void:
 	var line_text = line_edit.text
 	if line_text == password:
-		print("CORRECT")
+		login_successful.emit()
 	else:
 		wrong_text_timer.wait_time = 3.0
 		wrong_text_timer.start()

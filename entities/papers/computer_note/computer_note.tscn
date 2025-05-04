@@ -27,6 +27,7 @@ shape = SubResource("BoxShape3D_xjqml")
 
 [node name="PaperUI" type="CanvasLayer" parent="."]
 layer = -12
+visible = false
 
 [node name="PaperControl" type="Control" parent="PaperUI"]
 layout_mode = 3

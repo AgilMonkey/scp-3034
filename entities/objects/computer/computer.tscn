@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://1rpsqcx7lkr2"]
+[gd_scene load_steps=13 format=3 uid="uid://1rpsqcx7lkr2"]
 
 [ext_resource type="PackedScene" uid="uid://bsyn2ccma6afs" path="res://entities/objects/computer/computer_model/Computer Retro.glb" id="1_7pr6t"]
 [ext_resource type="Script" uid="uid://drk4r66qns62r" path="res://entities/objects/computer/computer.gd" id="1_sxe8h"]
@@ -6,6 +6,9 @@
 [ext_resource type="Theme" uid="uid://40pryt5epnrs" path="res://themes/scp_themes.tres" id="4_ev5ja"]
 [ext_resource type="Script" uid="uid://c2tjfwfjfjssv" path="res://entities/objects/computer/login.gd" id="5_in2mm"]
 [ext_resource type="PackedScene" uid="uid://j78i7ueu7fel" path="res://entities/papers/computer_note/computer_note.tscn" id="6_4k6xg"]
+[ext_resource type="Script" uid="uid://dmffbyfe1m8x8" path="res://entities/objects/computer/h_tabs_container.gd" id="7_pp7s5"]
+[ext_resource type="Script" uid="uid://cdo4defuijmb3" path="res://entities/objects/computer/audio.gd" id="8_cr3v4"]
+[ext_resource type="AudioStream" uid="uid://c2jv3yyvte6dy" path="res://assets/sounds/distortion_audio.mp3" id="9_066eh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_i4pvb"]
 size = Vector3(0.543945, 0.586914, 0.576599)
@@ -43,6 +46,7 @@ transform = Transform3D(0.999665, -1.13126e-09, 0.0258803, -0.0258803, -4.36967e
 layer = -12
 
 [node name="ComputerControl" type="Control" parent="ComputerUI"]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -150,6 +154,213 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 10
 text = "Enter"
 
+[node name="EmailPages" type="Control" parent="ComputerUI/ComputerControl/Screen"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="HTabsContainer" type="HBoxContainer" parent="ComputerUI/ComputerControl/Screen/EmailPages"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("7_pp7s5")
+
+[node name="Tabs" type="VBoxContainer" parent="ComputerUI/ComputerControl/Screen/EmailPages/HTabsContainer"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="Button1" type="Button" parent="ComputerUI/ComputerControl/Screen/EmailPages/HTabsContainer/Tabs"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Audio distortion"
+
+[node name="Button2" type="Button" parent="ComputerUI/ComputerControl/Screen/EmailPages/HTabsContainer/Tabs"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Audio analysis #1"
+
+[node name="Button3" type="Button" parent="ComputerUI/ComputerControl/Screen/EmailPages/HTabsContainer/Tabs"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Audio analysis #2"
+
+[node name="Button4" type="Button" parent="ComputerUI/ComputerControl/Screen/EmailPages/HTabsContainer/Tabs"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Audio analysis #3"
+
+[node name="Button5" type="Button" parent="ComputerUI/ComputerControl/Screen/EmailPages/HTabsContainer/Tabs"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Audio analysis #4"
+
+[node name="Button6" type="Button" parent="ComputerUI/ComputerControl/Screen/EmailPages/HTabsContainer/Tabs"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Audio analysis #5"
+
+[node name="Content" type="Panel" parent="ComputerUI/ComputerControl/Screen/EmailPages/HTabsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Content1" type="Control" parent="ComputerUI/ComputerControl/Screen/EmailPages/HTabsContainer/Content"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ComputerUI/ComputerControl/Screen/EmailPages/HTabsContainer/Content/Content1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ComputerUI/ComputerControl/Screen/EmailPages/HTabsContainer/Content/Content1/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ComputerUI/ComputerControl/Screen/EmailPages/HTabsContainer/Content/Content1/MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ComputerUI/ComputerControl/Screen/EmailPages/HTabsContainer/Content/Content1/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 12
+text = "A notable audio distortion occurs in the background of SCP-3034 as SCP-3034-A speaks:
+
+Attempts to analyze this distortion are ongoing (see attached audio analysis below).
+
+Testing has shown that SCP-3034 does not respond to recorded occurrences of \"все хорошо\". It is for this reason that personnel must be present at Provisional Site-3034 at all times."
+fit_content = true
+
+[node name="Audio" type="Control" parent="ComputerUI/ComputerControl/Screen/EmailPages/HTabsContainer/Content/Content1/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("8_cr3v4")
+
+[node name="PlayAudio" type="Button" parent="ComputerUI/ComputerControl/Screen/EmailPages/HTabsContainer/Content/Content1/MarginContainer/ScrollContainer/VBoxContainer/Audio"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -40.5
+offset_top = 3.0
+offset_right = 40.5
+offset_bottom = 25.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 12
+text = "Play Audio"
+
+[node name="DistortionAudio" type="AudioStreamPlayer" parent="ComputerUI/ComputerControl/Screen/EmailPages/HTabsContainer/Content/Content1/MarginContainer/ScrollContainer/VBoxContainer/Audio"]
+stream = ExtResource("9_066eh")
+volume_db = -12.0
+
+[node name="Content2" type="Control" parent="ComputerUI/ComputerControl/Screen/EmailPages/HTabsContainer/Content"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ComputerUI/ComputerControl/Screen/EmailPages/HTabsContainer/Content/Content2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ComputerUI/ComputerControl/Screen/EmailPages/HTabsContainer/Content/Content2/MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ComputerUI/ComputerControl/Screen/EmailPages/HTabsContainer/Content/Content2/MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_bottom = 60
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ComputerUI/ComputerControl/Screen/EmailPages/HTabsContainer/Content/Content2/MarginContainer/ScrollContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ComputerUI/ComputerControl/Screen/EmailPages/HTabsContainer/Content/Content2/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 12
+text = "DATE: 2012/09/12
+FROM: Dr. Schulkill <bschulkill@scp.foundation>
+TO: Dr. Emerson <remerson@scp.foundation>
+SUBJECT: Audio Analysis of SCP-3034
+
+We've been listening to this signal for just over half a century, now. During that time, we've recorded every instance of SCP-3034 since its discovery (except the very first one; attached you'll find a mission report regarding details of this occurrence). That's over 600 recordings.
+
+We've explored every avenue of inquiry I can think of. We can't track the signal, and upper management — quite reasonably — doesn't want us trying to talk to it. That's why I'm contacting you.
+
+I'm hoping with in-depth vocal analysis, you'll be able to tell us more about the voice on this recording. Cross-reference it with recordings of other number stations, maybe. Or give us a geographical location based on dialect and accent — an estimated age. Something, anything.
+
+Otherwise, I'm out of ideas. All I know is that someone's broadcasting recordings of a little girl counting down to zero — and we're all too scared to find out what happens if we let her finish.
+
+I'm starting to wonder if this isn't some sort of elaborate prank.
+"
+fit_content = true
+
+[node name="Content3" type="Control" parent="ComputerUI/ComputerControl/Screen/EmailPages/HTabsContainer/Content"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Content4" type="Control" parent="ComputerUI/ComputerControl/Screen/EmailPages/HTabsContainer/Content"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Content5" type="Control" parent="ComputerUI/ComputerControl/Screen/EmailPages/HTabsContainer/Content"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Content6" type="Control" parent="ComputerUI/ComputerControl/Screen/EmailPages/HTabsContainer/Content"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
 [node name="Vignete" type="TextureRect" parent="ComputerUI/ComputerControl"]
 layout_mode = 1
 anchors_preset = 15
@@ -193,5 +404,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
+[connection signal="login_successful" from="ComputerUI/ComputerControl/Screen/Login" to="." method="_on_login_login_successful"]
 [connection signal="button_down" from="ComputerUI/ComputerControl/Screen/Login/EnterButton" to="ComputerUI/ComputerControl/Screen/Login" method="_on_enter_button_button_down"]
+[connection signal="button_down" from="ComputerUI/ComputerControl/Screen/EmailPages/HTabsContainer/Content/Content1/MarginContainer/ScrollContainer/VBoxContainer/Audio/PlayAudio" to="ComputerUI/ComputerControl/Screen/EmailPages/HTabsContainer/Content/Content1/MarginContainer/ScrollContainer/VBoxContainer/Audio" method="_on_play_audio_button_down"]
 [connection signal="button_down" from="ComputerUI/ComputerControl/BackButton" to="." method="_on_back_button_button_down"]
