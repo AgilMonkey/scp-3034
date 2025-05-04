@@ -13,6 +13,7 @@ func _ready() -> void:
 	tabs_content = content.get_children()
 	
 	connect_tabs_to_content()
+	show_content(0)
 
 
 func connect_tabs_to_content():
