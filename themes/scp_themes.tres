@@ -5,3 +5,5 @@
 [resource]
 Button/fonts/font = ExtResource("1_u1q0b")
 Label/fonts/font = ExtResource("1_u1q0b")
+LineEdit/font_sizes/font_size = 12
+LineEdit/fonts/font = ExtResource("1_u1q0b")

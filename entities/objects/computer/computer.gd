@@ -9,6 +9,10 @@ extends Node3D
 
 func _ready() -> void:
 	interactable.interacted.connect(interact)
+	
+	computer_ui.hide()
+	computer_control.hide()
+	fade.hide()
 
 
 func interact():
