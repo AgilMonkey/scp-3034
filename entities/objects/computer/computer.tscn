@@ -1,8 +1,83 @@
-[gd_scene load_steps=2 format=3 uid="uid://1rpsqcx7lkr2"]
+[gd_scene load_steps=6 format=3 uid="uid://1rpsqcx7lkr2"]
 
 [ext_resource type="PackedScene" uid="uid://bsyn2ccma6afs" path="res://entities/objects/computer/computer_model/Computer Retro.glb" id="1_7pr6t"]
+[ext_resource type="Script" uid="uid://drk4r66qns62r" path="res://entities/objects/computer/computer.gd" id="1_sxe8h"]
+[ext_resource type="Script" uid="uid://bimigtgxr3x3x" path="res://commons/interactables3D/interactable3D.gd" id="2_i4pvb"]
+[ext_resource type="Theme" uid="uid://40pryt5epnrs" path="res://themes/scp_themes.tres" id="4_ev5ja"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i4pvb"]
+size = Vector3(0.543945, 0.586914, 0.576599)
 
 [node name="Computer" type="Node3D"]
+script = ExtResource("1_sxe8h")
 
 [node name="Computer Retro" parent="." instance=ExtResource("1_7pr6t")]
 transform = Transform3D(0.00697323, 0, 0.537706, 0, 0.537751, 0, -0.537706, 0, 0.00697323, 0, 0, 0)
+
+[node name="Interactable3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0629398, 0.241623, 0.282812)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("2_i4pvb")
+metadata/_custom_type_script = "uid://bimigtgxr3x3x"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactable3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0106201, 0, 0.00747681)
+shape = SubResource("BoxShape3D_i4pvb")
+
+[node name="ComputerUI" type="CanvasLayer" parent="."]
+layer = -12
+visible = false
+
+[node name="ComputerControl" type="Control" parent="ComputerUI"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("4_ev5ja")
+
+[node name="Background" type="ColorRect" parent="ComputerUI/ComputerControl"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.687215, 0.687215, 0.687215, 1)
+
+[node name="BackButton" type="Button" parent="ComputerUI/ComputerControl"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = -36.0
+offset_right = 62.0
+offset_bottom = -6.0
+grow_vertical = 0
+text = "Back"
+
+[node name="Fade" type="Control" parent="ComputerUI"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="ComputerUI/Fade"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[connection signal="button_down" from="ComputerUI/ComputerControl/BackButton" to="." method="_on_back_button_button_down"]

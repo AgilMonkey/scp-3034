@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dciqclavdup0n"]
+[gd_scene load_steps=25 format=3 uid="uid://dciqclavdup0n"]
 
 [ext_resource type="PackedScene" uid="uid://jdlg8ppr3qyo" path="res://entities/player/Player.tscn" id="1_0o3xy"]
 [ext_resource type="Script" uid="uid://8vr87yh8srvd" path="res://levels/main/main.gd" id="1_q42nm"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bcdf36hnxqsek" path="res://assets/models/table/table.glb" id="10_20bwc"]
 [ext_resource type="PackedScene" uid="uid://q6gfp8r8tjns" path="res://entities/papers/debriefing/debrief_paper.tscn" id="11_cpsu2"]
 [ext_resource type="PackedScene" uid="uid://djgnvrr6stj8j" path="res://entities/papers/interview/interview_paper.tscn" id="12_rw7ub"]
+[ext_resource type="PackedScene" uid="uid://1rpsqcx7lkr2" path="res://entities/objects/computer/computer.tscn" id="13_1fdnp"]
 
 [sub_resource type="Environment" id="Environment_f6gjy"]
 background_mode = 1
@@ -301,5 +302,8 @@ transform = Transform3D(-0.987822, 0, -0.15559, 0, 1, 0, 0.15559, 0, -0.987822, 
 
 [node name="InterviewPaper" parent="Table2" instance=ExtResource("12_rw7ub")]
 transform = Transform3D(0.926404, 0, -0.376532, 0, 1, 0, 0.376532, 0, 0.926404, -1.36483, 1.06487, -0.0117755)
+
+[node name="Computer" parent="." instance=ExtResource("13_1fdnp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.386397, 1.12659, 3.64509)
 
 [connection signal="countdown_ended" from="Radio" to="." method="game_over"]
