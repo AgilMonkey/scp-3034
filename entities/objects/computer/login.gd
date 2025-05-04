@@ -1,7 +1,7 @@
 extends Control
 
 
-@export var password: String = "143254"
+@export var password: String = "150167"
 
 @onready var line_edit: LineEdit = $LineEdit
 @onready var wrong_text: Label = $LineEdit/WrongText

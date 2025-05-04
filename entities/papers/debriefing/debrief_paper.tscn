@@ -52,6 +52,7 @@ mouse_filter = 2
 theme = ExtResource("4_85cdl")
 
 [node name="ExitButton" type="Button" parent="PaperUI/PaperControl"]
+layout_mode = 0
 offset_left = 9.0
 offset_top = 7.0
 offset_right = 46.0
