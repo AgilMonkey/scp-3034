@@ -76,7 +76,7 @@ billboard_keep_scale = true
 material = SubResource("StandardMaterial3D_sqa4f")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_20bwc"]
-size = Vector3(2.73926, 0.909302, 1.35156)
+size = Vector3(3.74316, 0.909302, 1.35156)
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_q42nm")
@@ -286,7 +286,8 @@ size = Vector3(14.9048, 15.1853, 13.5432)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.42475, -0.00705154, 3.66446)
 
 [node name="Table" type="Node3D" parent="Table2"]
-transform = Transform3D(1, 0, 0, 0, 0.65, 0, 0, 0, 0.7, 0, 0, 0)
+transform = Transform3D(1.30117, 0, 0, 0, 0.65, 0, 0, 0, 0.7, 0, 0, 0)
+metadata/_edit_group_ = true
 
 [node name="table" parent="Table2/Table" instance=ExtResource("10_20bwc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.03723, 0, 1.9597)
@@ -296,9 +297,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.603169, 0)
 shape = SubResource("BoxShape3D_20bwc")
 
 [node name="DebriefPaper" parent="Table2" instance=ExtResource("11_cpsu2")]
-transform = Transform3D(-0.987822, 0, -0.15559, 0, 1, 0, 0.15559, 0, -0.987822, 0.817025, 1.06487, -0.0153489)
+transform = Transform3D(-0.987822, 0, -0.15559, 0, 1, 0, 0.15559, 0, -0.987822, 1.15985, 1.06487, -0.0540218)
 
 [node name="InterviewPaper" parent="Table2" instance=ExtResource("12_rw7ub")]
-transform = Transform3D(0.926404, 0, -0.376532, 0, 1, 0, 0.376532, 0, 0.926404, -0.884778, 1.06487, 0.0206861)
+transform = Transform3D(0.926404, 0, -0.376532, 0, 1, 0, 0.376532, 0, 0.926404, -1.36483, 1.06487, -0.0117755)
 
 [connection signal="countdown_ended" from="Radio" to="." method="game_over"]

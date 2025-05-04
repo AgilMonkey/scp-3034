@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://1rpsqcx7lkr2"]
+
+[ext_resource type="PackedScene" uid="uid://bsyn2ccma6afs" path="res://entities/objects/computer/computer_model/Computer Retro.glb" id="1_7pr6t"]
+
+[node name="Computer" type="Node3D"]
+
+[node name="Computer Retro" parent="." instance=ExtResource("1_7pr6t")]
+transform = Transform3D(0.00697323, 0, 0.537706, 0, 0.537751, 0, -0.537706, 0, 0.00697323, 0, 0, 0)
