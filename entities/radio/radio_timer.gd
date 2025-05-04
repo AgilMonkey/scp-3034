@@ -3,8 +3,8 @@ extends Node3D
 
 var max_countdown_timer = 50.0
 
-var max_start_rand_timer = 20.0
-var min_start_rand_timer = 10.0
+var min_start_rand_timer = 60.0
+var max_start_rand_timer = 120.0
 
 var countdown_t
 
