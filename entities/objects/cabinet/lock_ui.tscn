@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctyltpp36nq3y"]
+
+[ext_resource type="PackedScene" uid="uid://bomgl54onjun1" path="res://entities/objects/cabinet/lock_button.tscn" id="1_e8xxr"]
+[ext_resource type="Script" uid="uid://chnojrb2b3grx" path="res://entities/objects/cabinet/lock_ui.gd" id="1_ib5ie"]
+
+[node name="LockUI" type="Control" node_paths=PackedStringArray("lock_buttons")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_ib5ie")
+lock_buttons = [NodePath("Pivot/HBoxContainer/LockButton"), NodePath("Pivot/HBoxContainer/LockButton2"), NodePath("Pivot/HBoxContainer/LockButton3"), NodePath("Pivot/HBoxContainer/LockButton4")]
+
+[node name="Pivot" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 13.0
+offset_top = -120.0
+offset_right = 299.0
+offset_bottom = 120.0
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Pivot"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 53.0
+offset_bottom = -53.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="LockButton" parent="Pivot/HBoxContainer" instance=ExtResource("1_e8xxr")]
+layout_mode = 2
+
+[node name="LockButton2" parent="Pivot/HBoxContainer" instance=ExtResource("1_e8xxr")]
+layout_mode = 2
+
+[node name="LockButton3" parent="Pivot/HBoxContainer" instance=ExtResource("1_e8xxr")]
+layout_mode = 2
+
+[node name="LockButton4" parent="Pivot/HBoxContainer" instance=ExtResource("1_e8xxr")]
+layout_mode = 2
+
+[node name="EnterButton" type="Button" parent="Pivot/HBoxContainer"]
+layout_mode = 2
+text = "ENTER"
+
+[connection signal="button_down" from="Pivot/HBoxContainer/EnterButton" to="." method="_on_enter_button_button_down"]

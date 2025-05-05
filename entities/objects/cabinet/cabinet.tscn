@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=3 uid="uid://beh4stlheikpg"]
+
+[ext_resource type="PackedScene" uid="uid://ctyltpp36nq3y" path="res://entities/objects/cabinet/lock_ui.tscn" id="1_32tgt"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_2uvsu"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2uvsu"]
+size = Vector3(2.5354, 3.12012, 1.07324)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_2uvsu"]
+viewport_path = NodePath("Lock/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_32tgt"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_2uvsu")
+
+[sub_resource type="QuadMesh" id="QuadMesh_2uvsu"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_32tgt")
+
+[node name="Cabinet" type="Node3D"]
+
+[node name="MeshPivot" type="Node3D" parent="."]
+transform = Transform3D(2.45649, 0, 0, 0, 3.06238, 0, 0, 0, 1.01193, 0, 0, 0)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0.5)
+mesh = SubResource("BoxMesh_2uvsu")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.56006, 0.5)
+shape = SubResource("BoxShape3D_2uvsu")
+
+[node name="Lock" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.55696, 1.01098)
+
+[node name="MeshPivot" type="Node3D" parent="Lock"]
+transform = Transform3D(0.51848, 0, 0, 0, 0.4578, 0, 0, 0, 0.242507, 0, 0, 0)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Lock/MeshPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
+mesh = SubResource("BoxMesh_2uvsu")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Lock"]
+transform = Transform3D(0.35, 0, 0, 0, 0.280079, 0, 0, 0, 0.35, 0, 0, 0.246803)
+mesh = SubResource("QuadMesh_2uvsu")
+metadata/_edit_group_ = true
+
+[node name="SubViewport" type="SubViewport" parent="Lock"]
+size = Vector2i(250, 200)
+
+[node name="LockUI" parent="Lock/SubViewport" instance=ExtResource("1_32tgt")]
