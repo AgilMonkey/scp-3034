@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://beh4stlheikpg"]
+[gd_scene load_steps=8 format=3 uid="uid://beh4stlheikpg"]
 
 [ext_resource type="PackedScene" uid="uid://ctyltpp36nq3y" path="res://entities/objects/cabinet/lock_ui.tscn" id="1_32tgt"]
 
@@ -17,6 +17,9 @@ albedo_texture = SubResource("ViewportTexture_2uvsu")
 [sub_resource type="QuadMesh" id="QuadMesh_2uvsu"]
 resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_32tgt")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_32tgt"]
+size = Vector3(0.530273, 0.47168, 0.244995)
 
 [node name="Cabinet" type="Node3D"]
 
@@ -51,6 +54,12 @@ skeleton = NodePath("../..")
 transform = Transform3D(0.35, 0, 0, 0, 0.280079, 0, 0, 0, 0.35, 0, 0, 0.246803)
 mesh = SubResource("QuadMesh_2uvsu")
 metadata/_edit_group_ = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Lock"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Lock/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.175354)
+shape = SubResource("BoxShape3D_32tgt")
 
 [node name="SubViewport" type="SubViewport" parent="Lock"]
 size = Vector2i(250, 200)
