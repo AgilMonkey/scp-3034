@@ -311,3 +311,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.386397, 1.12659, 3.64509)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.249484, 0, -4.17649)
 
 [connection signal="countdown_ended" from="Radio" to="." method="game_over"]
+[connection signal="interacted_with" from="Radio/Scp3034IntroPaper" to="." method="start_radio"]

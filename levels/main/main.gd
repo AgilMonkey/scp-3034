@@ -3,6 +3,12 @@ extends Node3D
 
 @export_file("*.tscn") var credit_scene
 
+@onready var radio: Node3D = $Radio
+
+
+func start_radio():
+	radio.start_radio()
+
 
 func game_over():
 	SceneTransition.no_fr_just_black()

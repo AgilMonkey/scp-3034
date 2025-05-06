@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://b3itmv6h1dqy2" path="res://assets/tree_pack_1.1/textures/tree07.png" id="1_hdj87"]
 
 [resource]
+render_priority = -20
 transparency = 1
 albedo_texture = ExtResource("1_hdj87")
 metallic_specular = 0.0

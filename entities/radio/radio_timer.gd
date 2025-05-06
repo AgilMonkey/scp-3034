@@ -15,12 +15,15 @@ var countdown_t
 @onready var counting_down_script: Node3D = $"../CountingDownScript"
 
 
-func _ready() -> void:
-	start_radio_random_timer()
-
 func _process(delta: float) -> void:
 	if not countdown_timer.is_stopped():
 		print(ceil(countdown_timer.time_left))
+
+
+func start_radio_beginning():
+	var beginning_time := 60.0
+	await get_tree().create_timer(beginning_time).timeout
+	start_radio()
 
 
 func start_radio_random_timer():

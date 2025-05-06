@@ -334,6 +334,7 @@ offset_right = 53.0
 offset_bottom = 33.0
 text = "Back"
 
+[connection signal="radio_started" from="." to="RadioTimer" method="start_radio_beginning"]
 [connection signal="button_down" from="RadioUI/Control/AllIsWellButton" to="RadioTimer" method="_on_all_is_well_button_button_down"]
 [connection signal="draw" from="RadioUI/Control/AllIsWellButton" to="RadioInteract" method="_on_all_is_well_button_draw"]
 [connection signal="hidden" from="RadioUI/Control/AllIsWellButton" to="RadioInteract" method="_on_all_is_well_button_hidden"]
