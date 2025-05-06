@@ -3,7 +3,7 @@ extends Control
 
 signal login_successful
 
-@export var password: String = "011567"
+@export var password: String = "19640202"
 
 @onready var line_edit: LineEdit = $LineEdit
 @onready var wrong_text: Label = $LineEdit/WrongText
