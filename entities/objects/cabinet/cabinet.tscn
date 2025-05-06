@@ -1,25 +1,34 @@
-[gd_scene load_steps=8 format=3 uid="uid://beh4stlheikpg"]
+[gd_scene load_steps=13 format=3 uid="uid://beh4stlheikpg"]
 
 [ext_resource type="PackedScene" uid="uid://ctyltpp36nq3y" path="res://entities/objects/cabinet/lock_ui.tscn" id="1_32tgt"]
+[ext_resource type="Script" uid="uid://bfrkx2lnkgpax" path="res://commons/3d_gui/gui_3d.gd" id="1_uaaye"]
+[ext_resource type="Script" uid="uid://rfoye0pr2x5o" path="res://entities/objects/cabinet/lock_interact.gd" id="3_syk5y"]
+[ext_resource type="Theme" uid="uid://40pryt5epnrs" path="res://themes/scp_themes.tres" id="4_eo1gu"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_2uvsu"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2uvsu"]
 size = Vector3(2.5354, 3.12012, 1.07324)
 
+[sub_resource type="QuadMesh" id="QuadMesh_2uvsu"]
+resource_local_to_scene = true
+
 [sub_resource type="ViewportTexture" id="ViewportTexture_2uvsu"]
+resource_name = "_albedo"
 viewport_path = NodePath("Lock/SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_32tgt"]
 resource_local_to_scene = true
 albedo_texture = SubResource("ViewportTexture_2uvsu")
 
-[sub_resource type="QuadMesh" id="QuadMesh_2uvsu"]
-resource_local_to_scene = true
-material = SubResource("StandardMaterial3D_32tgt")
+[sub_resource type="BoxShape3D" id="BoxShape3D_uaaye"]
+size = Vector3(1.04663, 1.04907, 0.060791)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_32tgt"]
-size = Vector3(0.530273, 0.47168, 0.244995)
+size = Vector3(0.530273, 0.47168, 0.265625)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_syk5y"]
+size = Vector3(0.530273, 0.47168, 0.265625)
 
 [node name="Cabinet" type="Node3D"]
 
@@ -38,8 +47,12 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.56006, 0.5)
 shape = SubResource("BoxShape3D_2uvsu")
 
-[node name="Lock" type="Node3D" parent="."]
+[node name="Lock" type="Node3D" parent="." node_paths=PackedStringArray("node_viewport", "node_quad", "node_area")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.55696, 1.01098)
+script = ExtResource("1_uaaye")
+node_viewport = NodePath("SubViewport")
+node_quad = NodePath("MeshInstance3D")
+node_area = NodePath("MeshInstance3D/Area3D")
 
 [node name="MeshPivot" type="Node3D" parent="Lock"]
 transform = Transform3D(0.51848, 0, 0, 0, 0.4578, 0, 0, 0, 0.242507, 0, 0, 0)
@@ -53,15 +66,50 @@ skeleton = NodePath("../..")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Lock"]
 transform = Transform3D(0.35, 0, 0, 0, 0.280079, 0, 0, 0, 0.35, 0, 0, 0.246803)
 mesh = SubResource("QuadMesh_2uvsu")
+surface_material_override/0 = SubResource("StandardMaterial3D_32tgt")
 metadata/_edit_group_ = true
+
+[node name="Area3D" type="Area3D" parent="Lock/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Lock/MeshInstance3D/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.00134254)
+shape = SubResource("BoxShape3D_uaaye")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Lock"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Lock/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.175354)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.122022)
 shape = SubResource("BoxShape3D_32tgt")
 
 [node name="SubViewport" type="SubViewport" parent="Lock"]
 size = Vector2i(250, 200)
 
 [node name="LockUI" parent="Lock/SubViewport" instance=ExtResource("1_32tgt")]
+
+[node name="LockInteract" type="Area3D" parent="Lock" node_paths=PackedStringArray("camera_pivot", "static_body", "ui")]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("3_syk5y")
+camera_pivot = NodePath("CameraPivot")
+static_body = NodePath("../StaticBody3D")
+ui = NodePath("../../UI")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Lock/LockInteract"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.127071)
+shape = SubResource("BoxShape3D_syk5y")
+
+[node name="CameraPivot" type="Node3D" parent="Lock/LockInteract"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.507504)
+
+[node name="UI" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="BackButton" type="Button" parent="UI"]
+offset_left = 7.0
+offset_top = 7.0
+offset_right = 74.0
+offset_bottom = 38.0
+theme = ExtResource("4_eo1gu")
+text = "Back"
+
+[connection signal="button_down" from="UI/BackButton" to="Lock/LockInteract" method="_on_back_button_button_down"]
