@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://ctyltpp36nq3y"]
+[gd_scene load_steps=4 format=3 uid="uid://ctyltpp36nq3y"]
 
 [ext_resource type="PackedScene" uid="uid://bomgl54onjun1" path="res://entities/objects/cabinet/lock_button.tscn" id="1_e8xxr"]
 [ext_resource type="Script" uid="uid://chnojrb2b3grx" path="res://entities/objects/cabinet/lock_ui.gd" id="1_ib5ie"]
+[ext_resource type="Theme" uid="uid://40pryt5epnrs" path="res://themes/scp_themes.tres" id="1_qjg3r"]
 
 [node name="LockUI" type="Control" node_paths=PackedStringArray("lock_buttons")]
 layout_mode = 3
@@ -11,6 +12,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+theme = ExtResource("1_qjg3r")
 script = ExtResource("1_ib5ie")
 lock_buttons = [NodePath("Pivot/HBoxContainer/LockButton"), NodePath("Pivot/HBoxContainer/LockButton2"), NodePath("Pivot/HBoxContainer/LockButton3"), NodePath("Pivot/HBoxContainer/LockButton4")]
 
@@ -21,7 +23,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.804743, 0.804743, 0.804743, 1)
+color = Color(0.998795, 0.913685, 0.837384, 1)
 
 [node name="Pivot" type="Control" parent="."]
 layout_mode = 1

@@ -12,13 +12,20 @@
 [sub_resource type="QuadMesh" id="QuadMesh_2uvsu"]
 resource_local_to_scene = true
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_2uvsu"]
-resource_name = "_albedo"
+[sub_resource type="ViewportTexture" id="ViewportTexture_ne0je"]
 viewport_path = NodePath("cabinet2/Door_001/lock/Lock/SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_32tgt"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_2uvsu")
+albedo_texture = SubResource("ViewportTexture_ne0je")
+metallic_specular = 0.0
+emission_enabled = true
+emission = Color(0.91888, 0.620709, 0.434655, 1)
+emission_energy_multiplier = 1.6
+emission_operator = 1
+emission_texture = SubResource("ViewportTexture_ne0je")
+backlight_enabled = true
+backlight = Color(1, 1, 1, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uaaye"]
 size = Vector3(1.04663, 1.04907, 0.060791)
@@ -124,7 +131,7 @@ mesh = SubResource("BoxMesh_2uvsu")
 skeleton = NodePath("../..")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="cabinet2/Door_001/lock/Lock"]
-transform = Transform3D(0.35, 0, 0, 0, 0.280079, 0, 0, 0, 0.35, 0, 0, 0.246803)
+transform = Transform3D(0.353384, 0, 0, 0, 0.282787, 0, 0, 0, 0.35, 0, 0, 0.246803)
 mesh = SubResource("QuadMesh_2uvsu")
 surface_material_override/0 = SubResource("StandardMaterial3D_32tgt")
 metadata/_edit_group_ = true
