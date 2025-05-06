@@ -6,8 +6,13 @@ extends Node3D
 @onready var radio: Node3D = $Radio
 
 
-func start_radio():
+func _ready() -> void:
 	radio.start_radio()
+
+
+func start_radio():
+	pass
+	#radio.start_radio()
 
 
 func game_over():
