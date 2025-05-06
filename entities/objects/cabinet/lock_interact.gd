@@ -17,6 +17,14 @@ func interact():
 	ui.show()
 
 
+func uninteract():
+	ui.hide()
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	enable_collision(true)
+	await lerp_camera_back()
+	enable_player()
+
+
 func enable_collision(enable: bool):
 	if enable:
 		static_body.process_mode = Node.PROCESS_MODE_INHERIT

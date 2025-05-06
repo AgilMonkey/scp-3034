@@ -1,21 +1,20 @@
-[gd_scene load_steps=13 format=3 uid="uid://beh4stlheikpg"]
+[gd_scene load_steps=18 format=3 uid="uid://beh4stlheikpg"]
 
 [ext_resource type="PackedScene" uid="uid://ctyltpp36nq3y" path="res://entities/objects/cabinet/lock_ui.tscn" id="1_32tgt"]
+[ext_resource type="Script" uid="uid://dv5u6wh8uy8f0" path="res://entities/objects/cabinet/cabinet.gd" id="1_ne0je"]
 [ext_resource type="Script" uid="uid://bfrkx2lnkgpax" path="res://commons/3d_gui/gui_3d.gd" id="1_uaaye"]
 [ext_resource type="Script" uid="uid://rfoye0pr2x5o" path="res://entities/objects/cabinet/lock_interact.gd" id="3_syk5y"]
 [ext_resource type="Theme" uid="uid://40pryt5epnrs" path="res://themes/scp_themes.tres" id="4_eo1gu"]
+[ext_resource type="PackedScene" uid="uid://cl2q8q2f16ji" path="res://assets/models/cabinet/cabinet.glb" id="7_jr014"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_2uvsu"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_2uvsu"]
-size = Vector3(2.5354, 3.12012, 1.07324)
 
 [sub_resource type="QuadMesh" id="QuadMesh_2uvsu"]
 resource_local_to_scene = true
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_2uvsu"]
 resource_name = "_albedo"
-viewport_path = NodePath("Lock/SubViewport")
+viewport_path = NodePath("cabinet2/Door_001/lock/Lock/SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_32tgt"]
 resource_local_to_scene = true
@@ -30,76 +29,143 @@ size = Vector3(0.530273, 0.47168, 0.265625)
 [sub_resource type="BoxShape3D" id="BoxShape3D_syk5y"]
 size = Vector3(0.530273, 0.47168, 0.265625)
 
-[node name="Cabinet" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_2uvsu"]
+size = Vector3(2.5354, 3.12012, 1.07324)
 
-[node name="MeshPivot" type="Node3D" parent="."]
-transform = Transform3D(2.45649, 0, 0, 0, 3.06238, 0, 0, 0, 1.01193, 0, 0, 0)
+[sub_resource type="Animation" id="Animation_ne0je"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("cabinet2/Door:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.211291, 2.04925, 0.436012)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("cabinet2/Door_001:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.211291, 2.04925, 0.436012)]
+}
+
+[sub_resource type="Animation" id="Animation_o1fj1"]
+resource_name = "open"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("cabinet2/Door:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.211291, 2.04925, 0.436012), Vector3(-1.39008, 2.04925, 0.436012)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("cabinet2/Door_001:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.211291, 2.04925, 0.436012), Vector3(1.00255, 2.04925, 0.436012)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ne0je"]
+_data = {
+&"RESET": SubResource("Animation_ne0je"),
+&"open": SubResource("Animation_o1fj1")
+}
+
+[node name="Cabinet" type="Node3D"]
+script = ExtResource("1_ne0je")
+
+[node name="cabinet2" parent="." instance=ExtResource("7_jr014")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
+
+[node name="Door" parent="cabinet2" index="1"]
+transform = Transform3D(0.998102, 0, 0, 0, 0.998102, 0, 0, 0, 0.0359686, -0.211291, 2.04925, 0.436012)
+
+[node name="Door_001" parent="cabinet2" index="2"]
+transform = Transform3D(0.998102, 0, 0, 0, 0.998102, 0, 0, 0, 0.0359686, -0.211291, 2.04925, 0.436012)
+
+[node name="Lock" type="Node3D" parent="cabinet2/Door_001/lock" index="0" node_paths=PackedStringArray("node_viewport", "node_quad", "node_area")]
+unique_name_in_owner = true
+transform = Transform3D(5.72122, 0, 0, 0, 6.39463, 0, 0, 0, 3.80345, 0.00264687, -0.0190344, 0.132094)
+script = ExtResource("1_uaaye")
+node_viewport = NodePath("SubViewport")
+node_quad = NodePath("MeshInstance3D")
+node_area = NodePath("MeshInstance3D/Area3D")
+
+[node name="MeshPivot" type="Node3D" parent="cabinet2/Door_001/lock/Lock"]
+transform = Transform3D(0.51848, 0, 0, 0, 0.4578, 0, 0, 0, 0.242507, 0, 0, 0)
+visible = false
 metadata/_edit_group_ = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshPivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0.5)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="cabinet2/Door_001/lock/Lock/MeshPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
 mesh = SubResource("BoxMesh_2uvsu")
 skeleton = NodePath("../..")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="cabinet2/Door_001/lock/Lock"]
+transform = Transform3D(0.35, 0, 0, 0, 0.280079, 0, 0, 0, 0.35, 0, 0, 0.246803)
+mesh = SubResource("QuadMesh_2uvsu")
+surface_material_override/0 = SubResource("StandardMaterial3D_32tgt")
+metadata/_edit_group_ = true
+
+[node name="Area3D" type="Area3D" parent="cabinet2/Door_001/lock/Lock/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="cabinet2/Door_001/lock/Lock/MeshInstance3D/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.00134254)
+shape = SubResource("BoxShape3D_uaaye")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="cabinet2/Door_001/lock/Lock"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="cabinet2/Door_001/lock/Lock/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.122022)
+shape = SubResource("BoxShape3D_32tgt")
+
+[node name="SubViewport" type="SubViewport" parent="cabinet2/Door_001/lock/Lock"]
+size = Vector2i(250, 200)
+
+[node name="LockUI" parent="cabinet2/Door_001/lock/Lock/SubViewport" instance=ExtResource("1_32tgt")]
+
+[node name="LockInteract" type="Area3D" parent="cabinet2/Door_001/lock/Lock" node_paths=PackedStringArray("camera_pivot", "static_body", "ui")]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("3_syk5y")
+camera_pivot = NodePath("CameraPivot")
+static_body = NodePath("../StaticBody3D")
+ui = NodePath("../../../../../UI")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="cabinet2/Door_001/lock/Lock/LockInteract"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.127071)
+shape = SubResource("BoxShape3D_syk5y")
+
+[node name="CameraPivot" type="Node3D" parent="cabinet2/Door_001/lock/Lock/LockInteract"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.507504)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.56006, 0.5)
 shape = SubResource("BoxShape3D_2uvsu")
-
-[node name="Lock" type="Node3D" parent="." node_paths=PackedStringArray("node_viewport", "node_quad", "node_area")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.55696, 1.01098)
-script = ExtResource("1_uaaye")
-node_viewport = NodePath("SubViewport")
-node_quad = NodePath("MeshInstance3D")
-node_area = NodePath("MeshInstance3D/Area3D")
-
-[node name="MeshPivot" type="Node3D" parent="Lock"]
-transform = Transform3D(0.51848, 0, 0, 0, 0.4578, 0, 0, 0, 0.242507, 0, 0, 0)
-metadata/_edit_group_ = true
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Lock/MeshPivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
-mesh = SubResource("BoxMesh_2uvsu")
-skeleton = NodePath("../..")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Lock"]
-transform = Transform3D(0.35, 0, 0, 0, 0.280079, 0, 0, 0, 0.35, 0, 0, 0.246803)
-mesh = SubResource("QuadMesh_2uvsu")
-surface_material_override/0 = SubResource("StandardMaterial3D_32tgt")
-metadata/_edit_group_ = true
-
-[node name="Area3D" type="Area3D" parent="Lock/MeshInstance3D"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Lock/MeshInstance3D/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.00134254)
-shape = SubResource("BoxShape3D_uaaye")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Lock"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Lock/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.122022)
-shape = SubResource("BoxShape3D_32tgt")
-
-[node name="SubViewport" type="SubViewport" parent="Lock"]
-size = Vector2i(250, 200)
-
-[node name="LockUI" parent="Lock/SubViewport" instance=ExtResource("1_32tgt")]
-
-[node name="LockInteract" type="Area3D" parent="Lock" node_paths=PackedStringArray("camera_pivot", "static_body", "ui")]
-collision_layer = 2
-collision_mask = 2
-script = ExtResource("3_syk5y")
-camera_pivot = NodePath("CameraPivot")
-static_body = NodePath("../StaticBody3D")
-ui = NodePath("../../UI")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Lock/LockInteract"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.127071)
-shape = SubResource("BoxShape3D_syk5y")
-
-[node name="CameraPivot" type="Node3D" parent="Lock/LockInteract"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.507504)
 
 [node name="UI" type="CanvasLayer" parent="."]
 visible = false
@@ -112,4 +178,12 @@ offset_bottom = 38.0
 theme = ExtResource("4_eo1gu")
 text = "Back"
 
-[connection signal="button_down" from="UI/BackButton" to="Lock/LockInteract" method="_on_back_button_button_down"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ne0je")
+}
+
+[connection signal="password_is_right" from="cabinet2/Door_001/lock/Lock/SubViewport/LockUI" to="." method="_on_lock_ui_password_is_right"]
+[connection signal="button_down" from="UI/BackButton" to="cabinet2/Door_001/lock/Lock/LockInteract" method="_on_back_button_button_down"]
+
+[editable path="cabinet2"]
