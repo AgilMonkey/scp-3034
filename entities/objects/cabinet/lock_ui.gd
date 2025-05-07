@@ -1,7 +1,7 @@
 extends Control
 
 
-var password = "1234"
+var password = "0136"
 
 @export var lock_buttons: Array[Control]
 
