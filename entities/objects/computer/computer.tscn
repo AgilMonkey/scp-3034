@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://1rpsqcx7lkr2"]
+[gd_scene load_steps=15 format=3 uid="uid://1rpsqcx7lkr2"]
 
 [ext_resource type="PackedScene" uid="uid://bsyn2ccma6afs" path="res://entities/objects/computer/computer_model/Computer Retro.glb" id="1_7pr6t"]
 [ext_resource type="Script" uid="uid://drk4r66qns62r" path="res://entities/objects/computer/computer.gd" id="1_sxe8h"]
@@ -9,6 +9,14 @@
 [ext_resource type="Script" uid="uid://dmffbyfe1m8x8" path="res://entities/objects/computer/h_tabs_container.gd" id="7_pp7s5"]
 [ext_resource type="Script" uid="uid://cdo4defuijmb3" path="res://entities/objects/computer/audio.gd" id="8_cr3v4"]
 [ext_resource type="AudioStream" uid="uid://c2jv3yyvte6dy" path="res://assets/sounds/distortion_audio.mp3" id="9_066eh"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_066eh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_at10k"]
+albedo_color = Color(0, 0, 0, 1)
+emission_enabled = true
+emission = Color(0.781185, 0.621751, 0.255135, 1)
+emission_energy_multiplier = 3.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_i4pvb"]
 size = Vector3(0.543945, 0.586914, 0.576599)
@@ -27,6 +35,11 @@ script = ExtResource("1_sxe8h")
 
 [node name="Computer Retro" parent="." instance=ExtResource("1_7pr6t")]
 transform = Transform3D(0.00697323, 0, 0.537706, 0, 0.537751, 0, -0.537706, 0, 0.00697323, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Computer Retro"]
+transform = Transform3D(-2.70084e-08, 0, 0.754152, 0, 0.754583, 0, -0.787821, 0, -2.42144e-08, -0.275664, 0.483026, -0.0966843)
+mesh = SubResource("QuadMesh_066eh")
+surface_material_override/0 = SubResource("StandardMaterial3D_at10k")
 
 [node name="Interactable3D" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0629398, 0.241623, 0.282812)
