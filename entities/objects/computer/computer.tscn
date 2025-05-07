@@ -704,7 +704,10 @@ New commands from the Site Director, let SCP-3034 count to 0. There will be no f
 
 
 
-[right]The howling moon"
+[right]On the first day there was nothing
+On the second day there was one thing
+On the third day 100 children's were born
+On the fourth day 64 were sacrificed"
 fit_content = true
 
 [node name="Vignete" type="TextureRect" parent="ComputerUI/ComputerControl"]
