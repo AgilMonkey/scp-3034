@@ -283,6 +283,7 @@ script = ExtResource("4_8nais")
 
 [node name="CountingDownAudio" type="AudioStreamPlayer3D" parent="CountingDownScript"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.20245, 0)
+stream = ExtResource("5_wgxkr")
 volume_db = -2.0
 unit_size = 4.0
 playback_type = 1

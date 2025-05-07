@@ -21,7 +21,7 @@ func _process(delta: float) -> void:
 
 
 func start_radio_beginning():
-	var beginning_time := 60.0
+	var beginning_time := 0.0
 	await get_tree().create_timer(beginning_time).timeout
 	start_radio()
 
