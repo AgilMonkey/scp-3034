@@ -5,9 +5,11 @@ signal interacted_with
 
 
 @onready var paper_ui: CanvasLayer = $PaperUI
+@onready var paper_sound: AudioStreamPlayer = $PaperSound
 
 
 func _on_interact_area_interacted() -> void:
+	paper_sound.play()
 	interacted_with.emit()
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	var player = get_tree().get_first_node_in_group("player")

@@ -1,18 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://djgnvrr6stj8j"]
+[gd_scene load_steps=7 format=3 uid="uid://djgnvrr6stj8j"]
 
 [ext_resource type="Script" uid="uid://dq0nabab073b2" path="res://entities/papers/common/paper.gd" id="1_0fega"]
 [ext_resource type="PackedScene" uid="uid://uywculwdbd0c" path="res://assets/models/paper/paper2.glb" id="2_0ikdd"]
 [ext_resource type="Script" uid="uid://bimigtgxr3x3x" path="res://commons/interactables3D/interactable3D.gd" id="3_hqt4i"]
 [ext_resource type="Theme" uid="uid://40pryt5epnrs" path="res://themes/scp_themes.tres" id="4_2sw6j"]
+[ext_resource type="PackedScene" uid="uid://ycs4t1ylt8d0" path="res://entities/papers/common/paper_sound.tscn" id="5_hqt4i"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ydpoh"]
 size = Vector3(0.518555, 0.0253906, 0.682617)
 
-[node name="InterviewPaper" type="Node3D" node_paths=PackedStringArray("paper_ui", "exit_button", "interact")]
+[node name="InterviewPaper" type="Node3D" node_paths=PackedStringArray("paper_ui", "exit_button", "interact", "paper_sound")]
 script = ExtResource("1_0fega")
 paper_ui = NodePath("PaperUI")
 exit_button = NodePath("PaperUI/PaperControl/ExitButton")
 interact = NodePath("InteractArea")
+paper_sound = NodePath("PaperSound")
 
 [node name="paper2Model" parent="." instance=ExtResource("2_0ikdd")]
 transform = Transform3D(0.655218, 0, 0, 0, 0.655218, 0, 0, 0, 0.655218, 0, 0, 0)
@@ -39,6 +41,7 @@ mouse_filter = 2
 theme = ExtResource("4_2sw6j")
 
 [node name="ExitButton" type="Button" parent="PaperUI/PaperControl"]
+layout_mode = 0
 offset_left = 9.0
 offset_top = 7.0
 offset_right = 46.0
@@ -187,3 +190,5 @@ VOICE 1: You can't — for the love of God, you can't —
 [END LOG.]"
 fit_content = true
 scroll_active = false
+
+[node name="PaperSound" parent="." instance=ExtResource("5_hqt4i")]

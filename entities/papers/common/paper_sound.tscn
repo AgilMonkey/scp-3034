@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ycs4t1ylt8d0"]
+
+[ext_resource type="AudioStream" uid="uid://st7p5xgmprc0" path="res://assets/sounds/paper-flutter-5933.ogg" id="1_1en8x"]
+
+[node name="PaperSound" type="AudioStreamPlayer"]
+stream = ExtResource("1_1en8x")
