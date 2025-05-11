@@ -7,8 +7,12 @@ extends Node3D
 
 var light_on := false
 
+var interact_count := 0
+
 
 func _start_printing_last_hint():
+	if interact_count > 0: return
+	interact_count += 1
 	last_hint.show()
 	last_hint.process_mode = Node.PROCESS_MODE_INHERIT
 	
