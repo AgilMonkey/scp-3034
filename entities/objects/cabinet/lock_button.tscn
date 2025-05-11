@@ -1,6 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://bomgl54onjun1"]
+[gd_scene load_steps=3 format=3 uid="uid://bomgl54onjun1"]
 
 [ext_resource type="Script" uid="uid://bhm8u7j3u1a7k" path="res://entities/objects/cabinet/lock_button.gd" id="1_28fra"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_28fra"]
+bg_color = Color(0.038401, 0.0384412, 0.129201, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [node name="LockButton" type="Control"]
 custom_minimum_size = Vector2(37, 130)
@@ -22,6 +29,7 @@ offset_right = 13.5
 offset_bottom = 24.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_28fra")
 
 [node name="LockNum" type="Label" parent="PanelContainer"]
 layout_mode = 2

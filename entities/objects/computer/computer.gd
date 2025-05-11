@@ -27,7 +27,7 @@ func interact():
 
 
 func stop_interact():
-	Input.mouse_mode = Input.MOUSE_MODE_CONFINED
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	await fade_in()
 	computer_control.hide()
 	await fade_out()

@@ -4,11 +4,6 @@ extends Node
 @onready var ambient_audio: AudioStreamPlayer = $AmbientAudio
 
 
-func _ready() -> void:
-	demuffle_ambient()
-	ambient_audio.play()
-
-
 func play_ambient():
 	demuffle_ambient()
 	ambient_audio.play()

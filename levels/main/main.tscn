@@ -36,10 +36,10 @@ size = Vector3(23, 1, 15)
 [sub_resource type="BoxShape3D" id="BoxShape3D_q42nm"]
 size = Vector3(9.06934, 10.2559, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oclhf"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hn1gb"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_oclhf"]
-material = SubResource("StandardMaterial3D_oclhf")
+material = SubResource("StandardMaterial3D_hn1gb")
 radial_segments = 12
 rings = 6
 
@@ -57,16 +57,16 @@ scale_min = 0.5
 scale_max = 0.5
 collision_mode = 2
 
-[sub_resource type="Gradient" id="Gradient_sqa4f"]
+[sub_resource type="Gradient" id="Gradient_hn1gb"]
 offsets = PackedFloat32Array(0.165816, 0.568878)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_20bwc"]
-gradient = SubResource("Gradient_sqa4f")
+gradient = SubResource("Gradient_hn1gb")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sqa4f"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3lhr6"]
 render_priority = -10
 transparency = 1
 shading_mode = 0
@@ -76,7 +76,7 @@ billboard_mode = 1
 billboard_keep_scale = true
 
 [sub_resource type="QuadMesh" id="QuadMesh_sqa4f"]
-material = SubResource("StandardMaterial3D_sqa4f")
+material = SubResource("StandardMaterial3D_3lhr6")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_20bwc"]
 size = Vector3(3.74316, 0.909302, 1.35156)

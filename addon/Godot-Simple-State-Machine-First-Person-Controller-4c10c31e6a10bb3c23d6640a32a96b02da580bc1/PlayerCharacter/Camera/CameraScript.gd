@@ -65,7 +65,7 @@ func _process(delta):
 	
 	#cameraTilt(delta)
 	
-	mouseMode()
+	#mouseMode()
 
 
 func applies(delta : float):
@@ -97,7 +97,8 @@ func cameraTilt(delta):
 	else: rotation.z = lerp(rotation.z, -playChar.inputDirection.x * camTiltRotationValue, camTiltRotationSpeed * delta)
 
 func mouseMode():
+	pass
 	#manage the mouse mode (visible = can use mouse on the screen, captured = mouse not visible and locked in at the center of the screen)
-	if Input.is_action_just_pressed(mouseModeAction): mouseFree = !mouseFree
-	if !mouseFree: Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	else: Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	#if Input.is_action_just_pressed(mouseModeAction): mouseFree = !mouseFree
+	#if !mouseFree: Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	#else: Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)

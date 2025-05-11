@@ -10,11 +10,6 @@ signal on_readed
 @export var interact: Interactable3D
 
 
-func _input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("ui_cancel"):
-		_on_exit_button_button_down()
-
-
 func _ready() -> void:
 	interact.interacted.connect(_on_interact_area_interacted)
 	exit_button.button_down.connect(_on_exit_button_button_down)
