@@ -36,7 +36,12 @@ func start_radio_random_timer():
 
 
 func start_radio():
-	if start_radio_audio.playing: return
+	var is_any_radio_audio_playing = (
+		start_radio_audio.playing or 
+		counting_down_script.audio_player.is_playing)
+	if is_any_radio_audio_playing :
+		return
+	
 	start_radio_audio.play()
 	await start_radio_audio.finished
 	countdown()
