@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://beh4stlheikpg"]
+[gd_scene load_steps=20 format=3 uid="uid://beh4stlheikpg"]
 
 [ext_resource type="PackedScene" uid="uid://ctyltpp36nq3y" path="res://entities/objects/cabinet/lock_ui.tscn" id="1_32tgt"]
 [ext_resource type="Script" uid="uid://dv5u6wh8uy8f0" path="res://entities/objects/cabinet/cabinet.gd" id="1_ne0je"]
@@ -7,6 +7,7 @@
 [ext_resource type="Theme" uid="uid://40pryt5epnrs" path="res://themes/scp_themes.tres" id="4_eo1gu"]
 [ext_resource type="PackedScene" uid="uid://cl2q8q2f16ji" path="res://assets/models/cabinet/cabinet.glb" id="7_jr014"]
 [ext_resource type="PackedScene" uid="uid://dhkdlvhiyvl7c" path="res://entities/papers/kolya_diary/kolya_diary.tscn" id="7_tufx7"]
+[ext_resource type="AudioStream" uid="uid://dl3ceih1a711k" path="res://assets/sounds/industrial-machine-cycle-73890.ogg" id="8_tufx7"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_2uvsu"]
 
@@ -70,6 +71,7 @@ tracks/1/keys = {
 [sub_resource type="Animation" id="Animation_o1fj1"]
 resource_name = "open"
 length = 2.0
+step = 1.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -93,6 +95,20 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(-0.211291, 2.04925, 0.436012), Vector3(1.00255, 2.04925, 0.436012)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("OpenSound")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ne0je"]
@@ -193,6 +209,9 @@ libraries = {
 
 [node name="KolyaDiary" parent="." instance=ExtResource("7_tufx7")]
 transform = Transform3D(0.0314806, 0, 0.999504, 0, 1, 0, -0.999504, 0, 0.0314805, -0.176893, 1.53317, 0.600878)
+
+[node name="OpenSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_tufx7")
 
 [connection signal="password_is_right" from="cabinet2/Door_001/lock/Lock/SubViewport/LockUI" to="." method="_on_lock_ui_password_is_right"]
 [connection signal="button_down" from="UI/BackButton" to="cabinet2/Door_001/lock/Lock/LockInteract" method="_on_back_button_button_down"]

@@ -14,6 +14,7 @@ var countdown_t
 @onready var radio_timer: Timer = $RadioTimer
 @onready var all_is_well_button: Button = $"../RadioUI/Control/AllIsWellButton"
 @onready var counting_down_script: Node3D = $"../CountingDownScript"
+@onready var counting_down_audio: AudioStreamPlayer3D = $"../CountingDownScript/CountingDownAudio"
 
 
 func _process(delta: float) -> void:
@@ -38,7 +39,7 @@ func start_radio_random_timer():
 func start_radio():
 	var is_any_radio_audio_playing = (
 		start_radio_audio.playing or 
-		counting_down_script.audio_player.is_playing)
+		counting_down_audio.playing)
 	if is_any_radio_audio_playing :
 		return
 	
