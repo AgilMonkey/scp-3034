@@ -1,8 +1,56 @@
-[gd_scene load_steps=4 format=3 uid="uid://ctyltpp36nq3y"]
+[gd_scene load_steps=8 format=3 uid="uid://ctyltpp36nq3y"]
 
 [ext_resource type="PackedScene" uid="uid://bomgl54onjun1" path="res://entities/objects/cabinet/lock_button.tscn" id="1_e8xxr"]
 [ext_resource type="Script" uid="uid://chnojrb2b3grx" path="res://entities/objects/cabinet/lock_ui.gd" id="1_ib5ie"]
 [ext_resource type="Theme" uid="uid://40pryt5epnrs" path="res://themes/scp_themes.tres" id="1_qjg3r"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_khieg"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.235294, 0.239216, 0.509804, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ndp7"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.14146, 0.141697, 0.328261, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kaq1o"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.236811, 0.238205, 0.508589, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qjg3r"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.0392157, 0.0392157, 0.129412, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [node name="LockUI" type="Control" node_paths=PackedStringArray("lock_buttons")]
 layout_mode = 3
@@ -62,6 +110,10 @@ layout_mode = 2
 
 [node name="EnterButton" type="Button" parent="Pivot/HBoxContainer"]
 layout_mode = 2
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_khieg")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8ndp7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_kaq1o")
+theme_override_styles/normal = SubResource("StyleBoxFlat_qjg3r")
 text = "ENTER"
 
 [node name="Correct" type="ColorRect" parent="."]

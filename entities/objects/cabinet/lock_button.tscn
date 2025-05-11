@@ -1,6 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bomgl54onjun1"]
+[gd_scene load_steps=6 format=3 uid="uid://bomgl54onjun1"]
 
 [ext_resource type="Script" uid="uid://bhm8u7j3u1a7k" path="res://entities/objects/cabinet/lock_button.gd" id="1_28fra"]
+[ext_resource type="Texture2D" uid="uid://ikt60cvjxcdl" path="res://assets/textures/normal.png" id="2_quaw8"]
+[ext_resource type="Texture2D" uid="uid://cec8nsgt4q6g2" path="res://assets/textures/pressed.png" id="3_2nh4a"]
+[ext_resource type="Texture2D" uid="uid://dofg7xrcls7m" path="res://assets/textures/hovered.png" id="3_i2a8h"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_28fra"]
 bg_color = Color(0.038401, 0.0384412, 0.129201, 1)
@@ -15,6 +18,7 @@ layout_mode = 3
 anchors_preset = 0
 mouse_filter = 2
 script = ExtResource("1_28fra")
+metadata/_edit_vertical_guides_ = [18.0]
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -36,30 +40,41 @@ layout_mode = 2
 size_flags_horizontal = 4
 text = "0"
 
-[node name="UpButton" type="Button" parent="."]
+[node name="UpButton" type="TextureButton" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -4.0
-offset_right = 4.0
-offset_bottom = 8.0
+offset_left = -15.5
+offset_top = 3.0
+offset_right = 112.5
+offset_bottom = 131.0
 grow_horizontal = 2
-text = "UP"
+scale = Vector2(0.242088, 0.242088)
+texture_normal = ExtResource("2_quaw8")
+texture_pressed = ExtResource("3_2nh4a")
+texture_hover = ExtResource("3_i2a8h")
 
-[node name="DownButton" type="Button" parent="."]
+[node name="DownButton" type="TextureButton" parent="."]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -15.0
-offset_top = -31.0
-offset_right = 15.0
+offset_left = 15.5
+offset_top = 1.52588e-05
+offset_right = 143.5
+offset_bottom = 128.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "DO"
+rotation = -3.14159
+scale = Vector2(0.242, 0.242)
+texture_normal = ExtResource("2_quaw8")
+texture_pressed = ExtResource("3_2nh4a")
+texture_hover = ExtResource("3_i2a8h")
+ignore_texture_size = true
+stretch_mode = 4
 
 [connection signal="button_down" from="UpButton" to="." method="_on_up_button_button_down"]
 [connection signal="button_down" from="DownButton" to="." method="_on_down_button_button_down"]
