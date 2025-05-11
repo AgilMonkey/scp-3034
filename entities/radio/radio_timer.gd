@@ -11,6 +11,7 @@ var countdown_t
 
 @onready var start_radio_audio: AudioStreamPlayer3D = $StartRadio
 @onready var countdown_timer: Timer = $CountdownTimer
+@onready var radio_timer: Timer = $RadioTimer
 @onready var all_is_well_button: Button = $"../RadioUI/Control/AllIsWellButton"
 @onready var counting_down_script: Node3D = $"../CountingDownScript"
 
@@ -22,17 +23,20 @@ func _process(delta: float) -> void:
 
 func start_radio_beginning():
 	var beginning_time := 60.0
-	await get_tree().create_timer(beginning_time).timeout
+	radio_timer.start(beginning_time)
+	await radio_timer.timeout
 	start_radio()
 
 
 func start_radio_random_timer():
 	var rand_time = randf_range(min_start_rand_timer, max_start_rand_timer)
-	await get_tree().create_timer(rand_time).timeout
+	radio_timer.start(rand_time)
+	await radio_timer.timeout
 	start_radio()
 
 
 func start_radio():
+	if start_radio_audio.playing: return
 	start_radio_audio.play()
 	await start_radio_audio.finished
 	countdown()

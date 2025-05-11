@@ -275,6 +275,8 @@ unit_size = 4.0
 [node name="CountdownTimer" type="Timer" parent="RadioTimer"]
 one_shot = true
 
+[node name="RadioTimer" type="Timer" parent="RadioTimer"]
+
 [node name="CamPivot" type="Node3D" parent="."]
 transform = Transform3D(0.86163, 0.0110716, 0.507416, 0, 0.999762, -0.0218143, -0.507537, 0.0187959, 0.861425, 0.806012, 1.23792, 1.36834)
 

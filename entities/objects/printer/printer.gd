@@ -1,6 +1,9 @@
 extends Node3D
 
 
+signal printed
+
+
 @onready var last_hint: Node3D = $LastHint
 @onready var attention_light: MeshInstance3D = $AttentionLight
 @onready var attention_audio: AudioStreamPlayer3D = $AttentionAudio
@@ -18,6 +21,8 @@ func _start_printing_last_hint():
 	
 	start_attention_light()
 	attention_audio.play()
+	
+	printed.emit()
 
 
 func stop_attention():
