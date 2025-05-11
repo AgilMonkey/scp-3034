@@ -16,7 +16,7 @@ signal on_kolya_diary_read
 func _ready() -> void:
 	kolya_diary.process_mode = Node.PROCESS_MODE_DISABLED
 	kolya_diary.on_readed.connect(func ():
-		await get_tree().create_timer(10.0).timeout
+		await get_tree().create_timer(20.0).timeout
 		on_kolya_diary_read.emit()
 		)
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://hd5om4bw8u4d"]
+[gd_scene load_steps=11 format=3 uid="uid://hd5om4bw8u4d"]
 
 [ext_resource type="Script" uid="uid://cefohburhhyka" path="res://entities/objects/printer/printer.gd" id="1_x44r1"]
 [ext_resource type="PackedScene" uid="uid://dg8wuiskfrp51" path="res://other/blender/printer/printer_model.blend" id="2_hvg1i"]
@@ -44,6 +44,14 @@ _data = {
 &"print": SubResource("Animation_x44r1")
 }
 
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_hvg1i"]
+height = 3.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hvg1i"]
+albedo_color = Color(0, 0, 0, 1)
+emission_enabled = true
+emission_energy_multiplier = 5.0
+
 [node name="Printer" type="Node3D"]
 script = ExtResource("1_x44r1")
 
@@ -73,5 +81,10 @@ libraries = {
 &"": SubResource("AnimationLibrary_oohda")
 }
 autoplay = "print"
+
+[node name="AttentionLight" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0646598, 0, 0, 0, 0.0646598, 0, 0, 0, 0.0646598, -0.39972, 0.484239, 0.231284)
+mesh = SubResource("CapsuleMesh_hvg1i")
+surface_material_override/0 = SubResource("StandardMaterial3D_hvg1i")
 
 [connection signal="interacted" from="LastHint/Interactable3D" to="." method="_on_interactable_3d_interacted"]
