@@ -28,7 +28,7 @@ func fade_in():
 
 
 func change_scene_fade(scene: String):
-	tween_fade.stop()
+	if tween_fade: tween_fade.stop()
 	
 	trans_ui.show()
 	black.show()

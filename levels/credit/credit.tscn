@@ -1,8 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://cdn577k5844qu"]
+[gd_scene load_steps=11 format=3 uid="uid://cdn577k5844qu"]
 
 [ext_resource type="Theme" uid="uid://40pryt5epnrs" path="res://themes/scp_themes.tres" id="1_2b6tp"]
 [ext_resource type="Script" uid="uid://c7uridi754ai4" path="res://levels/credit/credit.gd" id="1_oum3o"]
 [ext_resource type="AudioStream" uid="uid://1hne3gkbre6v" path="res://assets/sounds/DA 1112 McCormack - None but the Lonely Heart.mp3" id="2_g66j2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_oum3o"]
+paragraph_spacing = 10.0
+font_size = 12
 
 [sub_resource type="Animation" id="Animation_oum3o"]
 length = 0.001
@@ -53,6 +57,30 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Stuff/Control/End note:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Stuff/Control/End note:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_2b6tp"]
@@ -121,11 +149,121 @@ tracks/4/keys = {
 "method": &"play"
 }]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Stuff/Control/End note:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(29.9824),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Stuff/Control/End note:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(30, 31.9824),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_g66j2"]
 _data = {
 &"RESET": SubResource("Animation_oum3o"),
 &"start": SubResource("Animation_2b6tp")
+}
+
+[sub_resource type="Animation" id="Animation_12s2p"]
+resource_name = "fade_out"
+length = 2.0
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Music:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -50.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Stuff/Fade:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Stuff/Fade:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_6silu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Music:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Stuff/Fade:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Stuff/Fade:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6silu"]
+_data = {
+&"RESET": SubResource("Animation_6silu"),
+&"fade_out": SubResource("Animation_12s2p")
 }
 
 [node name="Credit" type="Node2D"]
@@ -274,10 +412,67 @@ text = "From Tchaikovsky,
 Tenor by John McCormack"
 horizontal_alignment = 1
 
+[node name="End note" type="Control" parent="Stuff/Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Stuff/Control/End note"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 11.0
+offset_top = 12.0
+offset_right = -11.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HeadLabel" type="Label" parent="Stuff/Control/End note/VBoxContainer"]
+layout_mode = 2
+text = "End note"
+
+[node name="BodyLabel" type="Label" parent="Stuff/Control/End note/VBoxContainer"]
+custom_minimum_size = Vector2(0.975, 2.075)
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Momkey here. This is my first, dare I say polished 3D game so it is quite rough, but I'm proud of it. Anyway, I've always liked Hippos articles, and 3034 is such a simple yet dreadful entry that I just can't help but wanting to adapt it. Of course the quality might be... Particular? But eh. I'm proud of it, and I'll make better game later anyway.
+It's sad that Hippos stopped making anymore article (Literally just found out about this) but it is his choice, even still we will never forget you buddy. "
+label_settings = SubResource("LabelSettings_oum3o")
+autowrap_mode = 2
+
+[node name="BackButton" type="Button" parent="Stuff/Control/End note/VBoxContainer"]
+layout_mode = 2
+text = "Back to menu
+"
+
+[node name="Fade" type="ColorRect" parent="Stuff"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_g66j2")
 }
 
+[node name="FadeAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_6silu")
+}
+
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_g66j2")
+
+[connection signal="button_down" from="Stuff/Control/End note/VBoxContainer/BackButton" to="." method="_on_back_button_button_down"]
