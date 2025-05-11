@@ -7,6 +7,12 @@ extends Node3D
 @onready var ui: CanvasLayer = $UI
 @onready var collision_shape_3d: CollisionShape3D = $StaticBody3D/CollisionShape3D
 
+@onready var kolya_diary: Paper = $KolyaDiary
+
+
+func _ready() -> void:
+	kolya_diary.process_mode = Node.PROCESS_MODE_DISABLED
+
 
 func _on_lock_ui_password_is_right() -> void:
 	animation_player.play("open")
@@ -16,3 +22,5 @@ func _on_lock_ui_password_is_right() -> void:
 	collision_shape_3d.shape.size.x = 4.6
 	await animation_player.animation_finished
 	lock_interact.uninteract()
+	
+	kolya_diary.process_mode = Node.PROCESS_MODE_INHERIT
