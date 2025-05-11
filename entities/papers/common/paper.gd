@@ -2,6 +2,9 @@ class_name Paper
 extends Node3D
 
 
+signal on_readed
+
+
 @export var paper_ui: CanvasLayer
 @export var exit_button: Button
 @export var interact: Interactable3D
@@ -21,6 +24,8 @@ func _ready() -> void:
 
 
 func _on_interact_area_interacted() -> void:
+	on_readed.emit()
+	
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	set_process_input(true)
 	var player = get_tree().get_first_node_in_group("player")

@@ -1,6 +1,9 @@
 extends Node3D
 
 
+signal on_kolya_diary_read
+
+
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var lock_interact: Area3D = %Lock/LockInteract
 @onready var lock: Node3D = %Lock
@@ -12,6 +15,10 @@ extends Node3D
 
 func _ready() -> void:
 	kolya_diary.process_mode = Node.PROCESS_MODE_DISABLED
+	kolya_diary.on_readed.connect(func ():
+		await get_tree().create_timer(10.0).timeout
+		on_kolya_diary_read.emit()
+		)
 
 
 func _on_lock_ui_password_is_right() -> void:
