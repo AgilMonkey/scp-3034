@@ -10,11 +10,16 @@ config_version=5
 
 [application]
 
-config/name="Scp Game Jam"
+config/name="SCP-3034"
+config/description="A short game about SCP 3034"
+config/version="1.0"
 config/tags=PackedStringArray("gamejams")
 run/main_scene="uid://ri3nfy6h8ect"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-config/icon="res://icon.svg"
+boot_splash/show_image=false
+boot_splash/fullsize=false
+boot_splash/use_filter=false
+config/icon="uid://bbghn88ei537c"
 run/size/mode=0
 
 [autoload]
