@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://ctyltpp36nq3y"]
+[gd_scene load_steps=10 format=3 uid="uid://ctyltpp36nq3y"]
 
 [ext_resource type="PackedScene" uid="uid://bomgl54onjun1" path="res://entities/objects/cabinet/lock_button.tscn" id="1_e8xxr"]
 [ext_resource type="Script" uid="uid://chnojrb2b3grx" path="res://entities/objects/cabinet/lock_ui.gd" id="1_ib5ie"]
 [ext_resource type="Theme" uid="uid://40pryt5epnrs" path="res://themes/scp_themes.tres" id="1_qjg3r"]
+[ext_resource type="AudioStream" uid="uid://c7751nsgtbrjm" path="res://assets/sounds/correct.ogg" id="4_kaq1o"]
+[ext_resource type="AudioStream" uid="uid://m33qoyu28h6e" path="res://assets/sounds/wrong.ogg" id="5_8ndp7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_khieg"]
 content_margin_left = 10.0
@@ -125,5 +127,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.0266324, 8.37475e-06, 0.161446, 1)
+
+[node name="CorrectSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_kaq1o")
+volume_db = -5.0
+
+[node name="WrongSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_8ndp7")
 
 [connection signal="button_down" from="Pivot/HBoxContainer/EnterButton" to="." method="_on_enter_button_button_down"]

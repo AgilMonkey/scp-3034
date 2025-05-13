@@ -212,6 +212,7 @@ transform = Transform3D(0.0314806, 0, 0.999504, 0, 1, 0, -0.999504, 0, 0.0314805
 
 [node name="OpenSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_tufx7")
+volume_db = 5.0
 
 [connection signal="password_is_right" from="cabinet2/Door_001/lock/Lock/SubViewport/LockUI" to="." method="_on_lock_ui_password_is_right"]
 [connection signal="button_down" from="UI/BackButton" to="cabinet2/Door_001/lock/Lock/LockInteract" method="_on_back_button_button_down"]

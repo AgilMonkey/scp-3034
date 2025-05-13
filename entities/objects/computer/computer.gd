@@ -7,6 +7,7 @@ extends Node3D
 @onready var fade: Control = $ComputerUI/Fade
 @onready var login: Control = $ComputerUI/ComputerControl/Screen/Login
 @onready var email_pages: Control = $ComputerUI/ComputerControl/Screen/EmailPages
+@onready var pc_start_sound: AudioStreamPlayer = $PcStartSound
 
 
 func _ready() -> void:
@@ -18,6 +19,8 @@ func _ready() -> void:
 
 
 func interact():
+	pc_start_sound.play()
+	
 	disable_player()
 	computer_ui.show()
 	await fade_in()

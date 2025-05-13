@@ -8,6 +8,8 @@ var password = "0136"
 signal password_is_right
 
 @onready var correct: ColorRect = $Correct
+@onready var correct_sound: AudioStreamPlayer = $CorrectSound
+@onready var wrong_sound: AudioStreamPlayer = $WrongSound
 
 
 func _on_enter_button_button_down() -> void:
@@ -15,8 +17,9 @@ func _on_enter_button_button_down() -> void:
 	if lock_pass == password:
 		correct.show()
 		password_is_right.emit()
+		correct_sound.play()
 	else:
-		print("NO!")
+		wrong_sound.play()
 
 
 func get_lock_pass() -> String:
