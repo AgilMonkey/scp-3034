@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://0l3y8fwuubxl"]
+[gd_scene load_steps=17 format=3 uid="uid://0l3y8fwuubxl"]
 
 [ext_resource type="Script" uid="uid://cm35jd74c1wcv" path="res://entities/radio/radio_timer.gd" id="1_72vy1"]
 [ext_resource type="Script" uid="uid://ynnwta6x4w3o" path="res://entities/radio/radio.gd" id="1_e6td6"]
@@ -22,6 +22,7 @@ size = Vector3(1.15198, 0.651367, 1)
 [sub_resource type="Animation" id="Animation_8nais"]
 resource_name = "start"
 length = 125.0
+step = 1.0
 tracks/0/type = "audio"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -212,9 +213,37 @@ tracks/2/keys = {
 "method": &"start_count_dialogue"
 }]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CountingDownAudio:unit_size")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 91, 109),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [4.0, 4.0, 20.0]
+}
+
+[sub_resource type="Animation" id="Animation_8s2wt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CountingDownAudio:unit_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [4.0]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wgxkr"]
 _data = {
+&"RESET": SubResource("Animation_8s2wt"),
 &"start": SubResource("Animation_8nais")
 }
 
@@ -285,7 +314,6 @@ script = ExtResource("4_8nais")
 
 [node name="CountingDownAudio" type="AudioStreamPlayer3D" parent="CountingDownScript"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.20245, 0)
-stream = ExtResource("5_wgxkr")
 volume_db = -2.0
 unit_size = 4.0
 playback_type = 1
