@@ -8,8 +8,7 @@ var main_scene = "res://levels/main/main.tscn"
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	MusicManager.demuffle_ambient()
-	MusicManager.ambient_audio.play()
+	MusicManager.play_ambient()
 	SceneTransition.no_fr_just_black()
 	await get_tree().create_timer(1.0).timeout
 	SceneTransition.fade_in()

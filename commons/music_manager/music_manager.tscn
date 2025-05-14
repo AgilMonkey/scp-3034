@@ -1,12 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://brax1nss8lxl1"]
+[gd_scene load_steps=4 format=3 uid="uid://brax1nss8lxl1"]
 
 [ext_resource type="AudioStream" uid="uid://dsa48cx66nn8g" path="res://assets/sounds/ambient.ogg" id="1_3mi3q"]
 [ext_resource type="Script" uid="uid://b7p6t1xbwqtct" path="res://commons/music_manager/music_manager.gd" id="1_4iwgx"]
+[ext_resource type="AudioStream" uid="uid://bnfwoi6lqttrv" path="res://assets/sounds/ambient_muffled.ogg" id="3_7kfgb"]
 
 [node name="MusicManager" type="Node"]
 script = ExtResource("1_4iwgx")
 
 [node name="AmbientAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_3mi3q")
+bus = &"Ambient"
+parameters/looping = true
+
+[node name="AmbientMuffledAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_7kfgb")
 bus = &"Ambient"
 parameters/looping = true
