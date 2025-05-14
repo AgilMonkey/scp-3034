@@ -5,6 +5,8 @@ var is_playing = false
 
 var main_scene = "res://levels/main/main.tscn"
 
+@onready var exit_button: Button = $MenuCanvas/Menu/VBoxContainer/ExitButton
+
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
@@ -12,6 +14,9 @@ func _ready() -> void:
 	SceneTransition.no_fr_just_black()
 	await get_tree().create_timer(1.0).timeout
 	SceneTransition.fade_in()
+	
+	if OS.has_feature("web"):
+		exit_button.hide()
 
 
 func _on_play_button_button_down() -> void:
