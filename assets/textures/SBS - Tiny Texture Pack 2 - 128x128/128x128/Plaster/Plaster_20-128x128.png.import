@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://beddvrww0arhq"
 path.s3tc="res://.godot/imported/Plaster_20-128x128.png-c6347cfa506f210fa24c106bc2fda067.s3tc.ctex"
+path.etc2="res://.godot/imported/Plaster_20-128x128.png-c6347cfa506f210fa24c106bc2fda067.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/SBS - Tiny Texture Pack 2 - 128x128/128x128/Plaster/Plaster_20-128x128.png"
-dest_files=["res://.godot/imported/Plaster_20-128x128.png-c6347cfa506f210fa24c106bc2fda067.s3tc.ctex"]
+dest_files=["res://.godot/imported/Plaster_20-128x128.png-c6347cfa506f210fa24c106bc2fda067.s3tc.ctex", "res://.godot/imported/Plaster_20-128x128.png-c6347cfa506f210fa24c106bc2fda067.etc2.ctex"]
 
 [params]
 

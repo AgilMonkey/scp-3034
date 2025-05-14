@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dj8615gyt6lpw"
 path.s3tc="res://.godot/imported/tower_door931-fixed.jpg-32d789bfc47c368bba480916598da895.s3tc.ctex"
+path.etc2="res://.godot/imported/tower_door931-fixed.jpg-32d789bfc47c368bba480916598da895.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/models/tower_door931-fixed.jpg"
-dest_files=["res://.godot/imported/tower_door931-fixed.jpg-32d789bfc47c368bba480916598da895.s3tc.ctex"]
+dest_files=["res://.godot/imported/tower_door931-fixed.jpg-32d789bfc47c368bba480916598da895.s3tc.ctex", "res://.godot/imported/tower_door931-fixed.jpg-32d789bfc47c368bba480916598da895.etc2.ctex"]
 
 [params]
 

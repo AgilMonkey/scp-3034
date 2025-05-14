@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dry5hrl2u3qx6"
 path.s3tc="res://.godot/imported/wood04_tex_128x128.png-07fd7497be73836d905bcb0669b6fb5e.s3tc.ctex"
+path.etc2="res://.godot/imported/wood04_tex_128x128.png-07fd7497be73836d905bcb0669b6fb5e.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/Chairs&Tables_PSX_Asset_Pack/textures/wood04_tex_128x128.png"
-dest_files=["res://.godot/imported/wood04_tex_128x128.png-07fd7497be73836d905bcb0669b6fb5e.s3tc.ctex"]
+dest_files=["res://.godot/imported/wood04_tex_128x128.png-07fd7497be73836d905bcb0669b6fb5e.s3tc.ctex", "res://.godot/imported/wood04_tex_128x128.png-07fd7497be73836d905bcb0669b6fb5e.etc2.ctex"]
 
 [params]
 

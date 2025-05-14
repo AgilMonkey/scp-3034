@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bh323ljfsb8o1"
 path.s3tc="res://.godot/imported/wood_wardrobe01_128x128.png-4939127b1f8c0e291dbc76489b65fc6a.s3tc.ctex"
+path.etc2="res://.godot/imported/wood_wardrobe01_128x128.png-4939127b1f8c0e291dbc76489b65fc6a.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/Chairs&Tables_PSX_Asset_Pack/textures/wood_wardrobe01_128x128.png"
-dest_files=["res://.godot/imported/wood_wardrobe01_128x128.png-4939127b1f8c0e291dbc76489b65fc6a.s3tc.ctex"]
+dest_files=["res://.godot/imported/wood_wardrobe01_128x128.png-4939127b1f8c0e291dbc76489b65fc6a.s3tc.ctex", "res://.godot/imported/wood_wardrobe01_128x128.png-4939127b1f8c0e291dbc76489b65fc6a.etc2.ctex"]
 
 [params]
 

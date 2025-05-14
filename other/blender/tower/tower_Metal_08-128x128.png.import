@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dvuleh7x8uset"
 path.s3tc="res://.godot/imported/tower_Metal_08-128x128.png-058456afa411a7ff2d065e47cb91a321.s3tc.ctex"
+path.etc2="res://.godot/imported/tower_Metal_08-128x128.png-058456afa411a7ff2d065e47cb91a321.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://other/blender/tower/tower_Metal_08-128x128.png"
-dest_files=["res://.godot/imported/tower_Metal_08-128x128.png-058456afa411a7ff2d065e47cb91a321.s3tc.ctex"]
+dest_files=["res://.godot/imported/tower_Metal_08-128x128.png-058456afa411a7ff2d065e47cb91a321.s3tc.ctex", "res://.godot/imported/tower_Metal_08-128x128.png-058456afa411a7ff2d065e47cb91a321.etc2.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://j7sury57jx76"
 path.s3tc="res://.godot/imported/grid_blue_512x512.png-907c7184f0790e721ed07cbd5c0c2787.s3tc.ctex"
+path.etc2="res://.godot/imported/grid_blue_512x512.png-907c7184f0790e721ed07cbd5c0c2787.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://addon/Godot-Simple-State-Machine-First-Person-Controller-4c10c31e6a10bb3c23d6640a32a96b02da580bc1/Arts/godot-prototype-texture/PNG/grid_512x512/grid_blue_512x512.png"
-dest_files=["res://.godot/imported/grid_blue_512x512.png-907c7184f0790e721ed07cbd5c0c2787.s3tc.ctex"]
+dest_files=["res://.godot/imported/grid_blue_512x512.png-907c7184f0790e721ed07cbd5c0c2787.s3tc.ctex", "res://.godot/imported/grid_blue_512x512.png-907c7184f0790e721ed07cbd5c0c2787.etc2.ctex"]
 
 [params]
 

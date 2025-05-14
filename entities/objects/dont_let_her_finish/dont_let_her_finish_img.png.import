@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://4x8yak40l4bp"
 path.s3tc="res://.godot/imported/dont_let_her_finish_img.png-0c27a88fc8c4b5d1f81b618b68e4426d.s3tc.ctex"
+path.etc2="res://.godot/imported/dont_let_her_finish_img.png-0c27a88fc8c4b5d1f81b618b68e4426d.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://entities/objects/dont_let_her_finish/dont_let_her_finish_img.png"
-dest_files=["res://.godot/imported/dont_let_her_finish_img.png-0c27a88fc8c4b5d1f81b618b68e4426d.s3tc.ctex"]
+dest_files=["res://.godot/imported/dont_let_her_finish_img.png-0c27a88fc8c4b5d1f81b618b68e4426d.s3tc.ctex", "res://.godot/imported/dont_let_her_finish_img.png-0c27a88fc8c4b5d1f81b618b68e4426d.etc2.ctex"]
 
 [params]
 

@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bmnif5o8oft8l"
 path.s3tc="res://.godot/imported/tower_Plaster_20-128x128.png-001f8a05bec4c52f16959d0ec182d7e7.s3tc.ctex"
+path.etc2="res://.godot/imported/tower_Plaster_20-128x128.png-001f8a05bec4c52f16959d0ec182d7e7.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/models/tower_Plaster_20-128x128.png"
-dest_files=["res://.godot/imported/tower_Plaster_20-128x128.png-001f8a05bec4c52f16959d0ec182d7e7.s3tc.ctex"]
+dest_files=["res://.godot/imported/tower_Plaster_20-128x128.png-001f8a05bec4c52f16959d0ec182d7e7.s3tc.ctex", "res://.godot/imported/tower_Plaster_20-128x128.png-001f8a05bec4c52f16959d0ec182d7e7.etc2.ctex"]
 
 [params]
 

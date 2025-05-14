@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bsyk04ptvxs3x"
 path.s3tc="res://.godot/imported/Plaster_20-128x128.png-0e06bdce58d1b676a85ff23076e3e65f.s3tc.ctex"
+path.etc2="res://.godot/imported/Plaster_20-128x128.png-0e06bdce58d1b676a85ff23076e3e65f.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://other/blender/tower/Plaster_20-128x128.png"
-dest_files=["res://.godot/imported/Plaster_20-128x128.png-0e06bdce58d1b676a85ff23076e3e65f.s3tc.ctex"]
+dest_files=["res://.godot/imported/Plaster_20-128x128.png-0e06bdce58d1b676a85ff23076e3e65f.s3tc.ctex", "res://.godot/imported/Plaster_20-128x128.png-0e06bdce58d1b676a85ff23076e3e65f.etc2.ctex"]
 
 [params]
 

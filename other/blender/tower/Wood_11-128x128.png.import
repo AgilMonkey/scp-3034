@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c5y4fdjgr2f5p"
 path.s3tc="res://.godot/imported/Wood_11-128x128.png-16236414fa9cf6f358569751b9dea9fc.s3tc.ctex"
+path.etc2="res://.godot/imported/Wood_11-128x128.png-16236414fa9cf6f358569751b9dea9fc.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://other/blender/tower/Wood_11-128x128.png"
-dest_files=["res://.godot/imported/Wood_11-128x128.png-16236414fa9cf6f358569751b9dea9fc.s3tc.ctex"]
+dest_files=["res://.godot/imported/Wood_11-128x128.png-16236414fa9cf6f358569751b9dea9fc.s3tc.ctex", "res://.godot/imported/Wood_11-128x128.png-16236414fa9cf6f358569751b9dea9fc.etc2.ctex"]
 
 [params]
 

@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bwiphskiqfjof"
 path.s3tc="res://.godot/imported/tower_grate_albedo.png-42254f20232d8a40be5ed4395e2c48f5.s3tc.ctex"
+path.etc2="res://.godot/imported/tower_grate_albedo.png-42254f20232d8a40be5ed4395e2c48f5.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/models/tower_grate_albedo.png"
-dest_files=["res://.godot/imported/tower_grate_albedo.png-42254f20232d8a40be5ed4395e2c48f5.s3tc.ctex"]
+dest_files=["res://.godot/imported/tower_grate_albedo.png-42254f20232d8a40be5ed4395e2c48f5.s3tc.ctex", "res://.godot/imported/tower_grate_albedo.png-42254f20232d8a40be5ed4395e2c48f5.etc2.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b3itmv6h1dqy2"
 path.s3tc="res://.godot/imported/tree07.png-5c81153c39cdace691a889ab28541d63.s3tc.ctex"
+path.etc2="res://.godot/imported/tree07.png-5c81153c39cdace691a889ab28541d63.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/tree_pack_1.1/textures/tree07.png"
-dest_files=["res://.godot/imported/tree07.png-5c81153c39cdace691a889ab28541d63.s3tc.ctex"]
+dest_files=["res://.godot/imported/tree07.png-5c81153c39cdace691a889ab28541d63.s3tc.ctex", "res://.godot/imported/tree07.png-5c81153c39cdace691a889ab28541d63.etc2.ctex"]
 
 [params]
 

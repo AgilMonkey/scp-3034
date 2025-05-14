@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://borau573exo1e"
 path.s3tc="res://.godot/imported/_albedo002.png-78d37b990ff656bbc07fbd59d8da50f8.s3tc.ctex"
+path.etc2="res://.godot/imported/_albedo002.png-78d37b990ff656bbc07fbd59d8da50f8.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://other/blender/tower/textures/_albedo002.png"
-dest_files=["res://.godot/imported/_albedo002.png-78d37b990ff656bbc07fbd59d8da50f8.s3tc.ctex"]
+dest_files=["res://.godot/imported/_albedo002.png-78d37b990ff656bbc07fbd59d8da50f8.s3tc.ctex", "res://.godot/imported/_albedo002.png-78d37b990ff656bbc07fbd59d8da50f8.etc2.ctex"]
 
 [params]
 
